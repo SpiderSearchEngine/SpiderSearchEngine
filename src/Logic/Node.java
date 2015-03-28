@@ -6,17 +6,17 @@ package Logic;
  *
  * @author jairo
  */
-public class Node {
-    private int pdata;
+public class Node <generic>{
+    private generic pdata;
     private Node _next;
     private Node _prev;
     
-    public Node (int pdata, Node next,  Node prev){
+    public Node (generic pdata, Node next,  Node prev){
         this.pdata=pdata;
         this._next=next;
         this._prev=prev;        
     }
-    public int getData (){
+    public generic getData (){
         return pdata;
     }
     public Node getNextNode (){
@@ -25,7 +25,7 @@ public class Node {
     public Node getPrevNode (){
         return _prev;
     }
-    public void setData (int pdata){
+    public void setData (generic pdata){
         this.pdata=pdata;
     }
     public void setNextNode (Node next){

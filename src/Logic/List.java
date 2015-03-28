@@ -5,7 +5,7 @@ package Logic;
  *
  * @author jairo
  */
-public class List {
+public class List <generic>{
     
     private Node _head;
     private Node _tail;
@@ -26,7 +26,7 @@ public class List {
     public void setTail(Node tail){
         this._tail=tail;
     }
-    public void insertHead(int pData){
+    public void insertHead(generic pData){
         if (_head==null){
             _head=(new Node (pData, _head, _tail));
             _tail=_head;
@@ -36,7 +36,7 @@ public class List {
             _head.getNextNode().setPrevNode(_head);
         }       
     }
-    public void insertTail (int pData){
+    public void insertTail (generic pData){
         if(_head==null){
             _head= new Node(pData, _head, _tail);
             _tail=_head;
@@ -49,18 +49,18 @@ public class List {
             _tail=tmp.getNextNode();
         }
     }
-    public void insertInOrder(int pData){
+    public void insertInOrder(generic pData){
         if (_head==null){
             _head=new Node(pData, _head, _tail);
             _tail=_head;
         }
-        else if (pData<_head.getData()){
+        else if ((Integer)pData<(Integer)_head.getData()){
             _head=(new Node(pData, _head,null));
             _head.getNextNode().setPrevNode(_head);
         }
         else{
             Node tmp = _head;
-            while(tmp.getNextNode()!=null && (tmp.getNextNode().getData()<pData))
+            while(tmp.getNextNode()!=null && ((Integer)tmp.getNextNode().getData()<(Integer)pData))
                 tmp=tmp.getNextNode();
             if(tmp.getNextNode()==null){
                 tmp.setNextNode(new Node(pData,null,tmp));
@@ -74,11 +74,11 @@ public class List {
             
         }
     }
-    public Node delete (int pData){
+    public Node delete (generic pData){
         Node tmp = null;
         if (_head == null)
             return _head;
-        else if (_head.getData()==pData){
+        else if ((Integer)_head.getData()==(Integer)pData){
             tmp=_head;
             if (_head.getNextNode()==null){
                 _head=null;
@@ -91,7 +91,7 @@ public class List {
         }
         else{
             tmp = _head.getNextNode();
-            while(tmp!=null && tmp.getData()!=pData)
+            while(tmp!=null && (Integer)tmp.getData()!=(Integer)pData)
                 tmp=tmp.getNextNode();
             if (tmp==null)
                 return null;
@@ -112,11 +112,11 @@ public class List {
         return tmp;
     }
     
-    public boolean find (int pData){
+    public boolean find (generic pData){
         Node tmp = _head;
         boolean condition = false;
         while(tmp!=null){
-            if (tmp.getData()!= pData)
+            if ((Integer)tmp.getData()!=(Integer)pData)
                 tmp=tmp.getNextNode();
             else{
                 condition=true;
