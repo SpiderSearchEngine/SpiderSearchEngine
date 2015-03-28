@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<targets>
+    <URL>www.google.com</URL>
+    <URL>www.amazon.com</URL>
+    <URL>www.wikipedia.com</URL>
+    <URL>www.nacion.com</URL>    
+</targets>
