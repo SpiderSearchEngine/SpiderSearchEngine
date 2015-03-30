@@ -10,7 +10,7 @@ package Logic;
  *
  * @author jairo
  */
-public class CircularList <generic>{
+public class CircularList <G>{
     private Node _head;
     
     public CircularList (Node _head){
@@ -25,7 +25,7 @@ public class CircularList <generic>{
         this._head=head;
     }
     
-    public void insertHead (generic pData){
+    public void insertHead (G pData){
         if (_head==null){
             _head=new Node (pData, _head,_head );
             _head.setNextNode(_head);
@@ -37,7 +37,7 @@ public class CircularList <generic>{
             _head.getPrevNode().setNextNode(_head);
         }
     }
-    public void insertTail(generic pData){
+    public void insertTail(G pData){
         if (_head==null){
             _head=new Node (pData, _head,_head );
             _head.setNextNode(_head);
@@ -51,7 +51,7 @@ public class CircularList <generic>{
             tmp.getPrevNode().setPrevNode(tmp.getNextNode());
         }
     }
-    public void insertInOrder(generic pData){
+    public void insertInOrder(G pData){
         if (_head==null){
             _head=new Node (pData, _head, _head);
             _head.setNextNode(_head);
@@ -70,7 +70,7 @@ public class CircularList <generic>{
             tmp.getNextNode().getNextNode().setPrevNode(tmp.getNextNode());
         }
     }
-    public Node delete (generic pData){
+    public Node delete (G pData){
         Node tmp=null;
         if (_head==null)
             return null;
@@ -96,7 +96,7 @@ public class CircularList <generic>{
         }
         return tmp;
     }
-    public boolean find (generic pData){
+    public boolean find (G pData){
         Node tmp = _head;
         boolean condition = false;
         while(tmp.getNextNode()!=_head){

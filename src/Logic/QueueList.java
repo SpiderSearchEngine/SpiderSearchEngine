@@ -10,7 +10,7 @@ package Logic;
  *
  * @author jairo
  */
-public class QueueList <generic>{
+public class QueueList <G>{
     private Node _head;
     private Node _tail;
     

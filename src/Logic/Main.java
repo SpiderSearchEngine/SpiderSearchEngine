@@ -17,6 +17,18 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        List l = new List(null, null);
+        url u = new url (0, "daniel.es");
+        url u1 = new url (0, "jairo.com");
+        l.insertHead(u);
+        l.insertHead(u1);
+        
+        System.out.println(u.getNumAsoc());
+        System.out.println(u.getDireccion());
+        System.out.println("------------");
+        System.out.println(((url)l.getHead().getData()).getDireccion());
+        
+        
     }
     
 }

@@ -5,7 +5,7 @@ package Logic;
  *
  * @author jairo
  */
-public class List <generic>{
+public class List <G>{
     
     private Node _head;
     private Node _tail;
@@ -26,7 +26,7 @@ public class List <generic>{
     public void setTail(Node tail){
         this._tail=tail;
     }
-    public void insertHead(generic pData){
+    public void insertHead(G pData){
         if (_head==null){
             _head=(new Node (pData, _head, _tail));
             _tail=_head;
@@ -36,7 +36,7 @@ public class List <generic>{
             _head.getNextNode().setPrevNode(_head);
         }       
     }
-    public void insertTail (generic pData){
+    public void insertTail (G pData){
         if(_head==null){
             _head= new Node(pData, _head, _tail);
             _tail=_head;
@@ -49,7 +49,7 @@ public class List <generic>{
             _tail=tmp.getNextNode();
         }
     }
-    public void insertInOrder(generic pData){
+    public void insertInOrder(G pData){
         if (_head==null){
             _head=new Node(pData, _head, _tail);
             _tail=_head;
@@ -74,7 +74,7 @@ public class List <generic>{
             
         }
     }
-    public Node delete (generic pData){
+    public Node delete (G pData){
         Node tmp = null;
         if (_head == null)
             return _head;
@@ -112,7 +112,7 @@ public class List <generic>{
         return tmp;
     }
     
-    public boolean find (generic pData){
+    public boolean find (G pData){
         Node tmp = _head;
         boolean condition = false;
         while(tmp!=null){
