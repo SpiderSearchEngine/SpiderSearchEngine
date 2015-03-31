@@ -111,7 +111,6 @@ public class List <G>{
         }
         return tmp;
     }
-    
     public boolean find (G pData){
         Node tmp = _head;
         boolean condition = false;
@@ -133,5 +132,4 @@ public class List <G>{
             tmp=tmp.getNextNode();
         }
     }
-
 }

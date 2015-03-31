@@ -19,7 +19,7 @@ public class QueueList <G>{
         this._tail=tail;
     }
     
-    public void enqueue (int pData){
+    public void enqueue (G pData){
         if (_head == null)
             _head=_tail=new Node (pData, null, null);
         else{
