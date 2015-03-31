@@ -31,7 +31,7 @@ public class Main {
         */
         App1Thread a = new App1Thread();
         
-        a.init();
+        a.beepForAnHour();
     }
     
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package Logic;
 
@@ -11,8 +7,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 /**
- *
- * @author jairo
+ * Clase para realizar el SpiderBot.
+ * @author Jairo O, Gerald M.
  */
 public class SpiderBot {
     
@@ -20,12 +16,21 @@ public class SpiderBot {
     private int _maxthreads;
     private int _maxprofundidad;
     private int _reindex;   
-    
+    /**
+     * Constructor de la clase
+     */
     public SpiderBot(){}/*String url){
         
         this._url=url;
     }*/
-    
+    /**
+     * Metodo para obtener los datos de un xml, en este caso,el de "targets".
+     * @param url. Direccion del xml.
+     * @param indice. Numero asociado a la pagina.
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException 
+     */
     public void obtenerurl(String url, int indice) throws ParserConfigurationException, SAXException, IOException{
         leerxml le =new leerxml();
         QueueList ql = new QueueList(null, null);
