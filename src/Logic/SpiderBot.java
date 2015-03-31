@@ -32,12 +32,11 @@ public class SpiderBot {
      * @throws IOException 
      */
     public void obtenerurl(String url, int indice) throws ParserConfigurationException, SAXException, IOException{
-        leerxml le =new leerxml();
-        QueueList ql = new QueueList(null, null);
-        
-        for (int i=indice; i<=7; i+=2){
-            ql.enqueue(new url (0,le.leer(url, i)));
-            System.out.println("inserte: "+ le.leer(url, i));
-        }
+        leerxml lxml =new leerxml();
+        QueueList ql = new QueueList(null, null);        
+        for (int i=indice; i<=19; i+=2){
+            ql.enqueue(new url (0,lxml.leer(url, i)));
+            System.out.println("inserte: "+ lxml.leer(url, i));
+        }   
     }
 }
