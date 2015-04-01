@@ -22,9 +22,11 @@ public class Main {
     public static void main(String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException{
         
         SpiderBot sb = new SpiderBot();
-        sb.obtenerurl("targets.xml",1);
+        sb.obtenerurl("targets.xml",1, 0);
+        //leerxml lxml=new leerxml();
+        //lxml.leer("targets.xml",1);
+        //extraerLinks el=new extraerLinks("http://www.amazon.com");
+        //el.extraerTexto("http://www.amazon.com");
         
-        extraerLinks el=new extraerLinks("http://es.wikipedia.org/");
-        el.extraerTexto("http://es.wikipedia.org/wiki/F%C3%BAtbol");
     }
 }

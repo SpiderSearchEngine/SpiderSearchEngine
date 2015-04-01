@@ -39,6 +39,7 @@ public class extraerLinks {
 
     private void verificar(String dato, String url){
         Character chardato =dato.charAt(0);
+        System.out.println(url+dato);
         if(Character.toString(chardato).equals("/"))
             System.out.println(url+dato);
         else if (Character.toString(chardato).equals("#"))

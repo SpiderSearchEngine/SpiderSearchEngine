@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 public class SpiderBot {
     
     private String _url;
-    private int nAsoc=0;
+    
     private int _maxthreads;
     private int _maxprofundidad;
     private int _reindex;   
@@ -32,13 +32,16 @@ public class SpiderBot {
      * @throws SAXException
      * @throws IOException 
      */
-    public void obtenerurl(String url, int indice) throws ParserConfigurationException, SAXException, IOException{
+    public void obtenerurl(String url, int indice, int nAsoc) throws ParserConfigurationException, SAXException, IOException{
         leerxml lxml =new leerxml();
         QueueList ql = new QueueList(null, null);        
         for (int i=indice; i<=19; i+=2){
             ql.enqueue(new url (nAsoc,lxml.leer(url, i)));
+            
+            
         }
         
-        
+        procesarURLS pUrls = new procesarURLS();
+        pUrls.procesar(ql);
     }
 }
