@@ -22,6 +22,12 @@ public class extraerLinks {
     public extraerLinks(String url){
         this._url=url;
     }
+    /**
+     * 
+     * @param string_url
+     * @throws MalformedURLException
+     * @throws IOException 
+     */
     public void extraerTexto(String string_url)throws MalformedURLException, IOException{
         URL url = new URL(string_url);
         URLConnection conexion=url.openConnection();
@@ -35,14 +41,21 @@ public class extraerLinks {
         }
         extraerURL(contenido);
     }
-    
+    /**
+     * 
+     * @param contenido 
+     */
     public void extraerURL(String contenido){
         Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
         Matcher matcher=patron.matcher(contenido);
         while(matcher.find())
             verificar(matcher.group(1), _url);
 	}
-
+    /**
+     * 
+     * @param dato
+     * @param url 
+     */
     private void verificar(String dato, String url){
         Character chardato =dato.charAt(0);
         System.out.println(url+dato);

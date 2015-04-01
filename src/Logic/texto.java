@@ -17,12 +17,12 @@ import java.net.URLConnection;
 
 /**
  *
- * @author gerald
+ * @author Gerald M, Jairo O
  */
 public class texto {
     public static String linkfinal;
     /**
-    * 
+    * Funcion para extraer todo el texto de una pagina html.
     * @return
     * @throws MalformedURLException
     * @throws IOException 

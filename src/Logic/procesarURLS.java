@@ -10,14 +10,18 @@ import java.io.IOException;
 
 /**
  *
- * @author jairo
+ *  @author Gerald M, Jairo O
  */
 public class procesarURLS {
     
     public procesarURLS(){
         
     }
-    
+    /**
+     * Metodo para desencolar y procesar los URL's
+     * @param cola
+     * @throws IOException 
+     */
     public void procesar (QueueList cola) throws IOException{
         String pag = ("http://"+((url)cola.dequeue().getData()).getDireccion());
         extraerLinks el = new extraerLinks(pag);

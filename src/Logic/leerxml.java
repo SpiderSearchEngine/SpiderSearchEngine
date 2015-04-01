@@ -21,13 +21,15 @@ import org.xml.sax.SAXException;
 
 public class leerxml {
     
-       
+     /**
+      * Constructor de la clase.
+      */  
     public leerxml(){
         
     }
     
     /**
-     * 
+     * Funcion que lo que hace es traer el texto de un HTML por comleto 
      * @param direccion
      * @param indice
      * @return

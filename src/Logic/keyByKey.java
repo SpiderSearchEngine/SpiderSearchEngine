@@ -10,7 +10,7 @@ import Logic.List;
 
 /**
  *
- * @author gerald and jairo
+ * @author Gerald M, Jairo O
  */
 public class keyByKey <G>{
     private String dato;
