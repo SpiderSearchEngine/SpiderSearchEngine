@@ -26,7 +26,7 @@ public class Main {
     public static void main(String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException{
         
         SpiderBot sb = new SpiderBot();
-        sb.obtenerurl("/home/jairo/NetBeansProjects/SpiderSearchEngine/src/XML/targets.xml",1);
+        sb.obtenerurl("targets.xml",1);
         
         /**
          * Aqui se esta instancean la clase texto la cual me trae todo el texto 
