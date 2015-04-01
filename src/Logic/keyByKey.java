@@ -42,7 +42,7 @@ public class keyByKey <G>{
         while(!dato.equals("")){
             Character chardato =dato.charAt(0);
             if(Character.toString(chardato).equals(" ")){
-                if (nombre!="" && nombre.length()>3)
+                if (nombre!="")
                     //lista.insertHead(nombre);
                     //lista.insertHead(new keywords_referencia(nombre, cir_lis.getHead()));
                 dato=dato.substring(1,dato.length());

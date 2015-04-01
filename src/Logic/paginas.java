@@ -17,10 +17,17 @@ public class paginas extends url{
         super(NumAsoc, direccion);
         this._trustworthy=trustworthy;
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public int getTrustworthy (){
         return this._trustworthy;
     }
+    /**
+     * 
+     * @param trustworthy 
+     */
     public void setTrustworthy (int trustworthy){
         this._trustworthy=trustworthy;
     }

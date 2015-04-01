@@ -14,11 +14,18 @@ public class url {
     
     private int _NumAsoc;
     private String _direccion;
-    
+    /**
+     * 
+     * @param NumAsoc
+     * @param direccion 
+     */
     public url (int NumAsoc, String direccion){
         this._NumAsoc=NumAsoc;
         this._direccion=direccion;
-    }
+    }/**
+     * 
+     * @param numAsoc 
+     */
     public void setNumAsoc (int numAsoc){
         this._NumAsoc=numAsoc;
     }

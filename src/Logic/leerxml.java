@@ -26,7 +26,16 @@ public class leerxml {
         
     }
     
-    
+    /**
+     * 
+     * @param direccion
+     * @param indice
+     * @return
+     * @throws ParserConfigurationException
+     * @throws FileNotFoundException
+     * @throws SAXException
+     * @throws IOException 
+     */
     public String leer (String direccion, int indice) throws ParserConfigurationException, FileNotFoundException, SAXException, IOException{
         try {
             DocumentBuilderFactory DBF = DocumentBuilderFactory.newInstance();

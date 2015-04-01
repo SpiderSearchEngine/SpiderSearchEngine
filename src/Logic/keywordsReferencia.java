@@ -15,19 +15,38 @@ public class keywordsReferencia <G>{
     private G URL;
     private String name;
     private List lista;
-    
+    /**
+     * 
+     * @param palabra
+     * @param URL 
+     */
     public keywordsReferencia(String palabra,G URL){
        
     }
+    /**
+     * 
+     * @param URL 
+     */
     public void setURL(G URL){
         this.URL=URL;
     }
+    /**
+     * 
+     * @return 
+     */
     public G getURL(){
         return URL;
-    }
+    }/**
+     * 
+     * @param palabra 
+     */
     public void setname(String palabra){
         this.name=palabra;
     }
+    /**
+     * 
+     * @return 
+     */
     public String getName(){
         return name;
     }
