@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Logic;
 
@@ -19,6 +14,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * Clase para leer los archivos xml
+ * @author Gerald M, Jairo O
+ */
 public class leerxml {
     
      /**
@@ -29,7 +28,7 @@ public class leerxml {
     }
     
     /**
-     * Funcion que lo que hace es traer el texto de un HTML por comleto 
+     * Metodo que lo que hace es traer el texto de un HTML por comleto 
      * @param direccion
      * @param indice
      * @return

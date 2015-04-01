@@ -9,14 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
+ * Clase para extraer el texto de la pagina web
  * @author Gerald M, Jairo O
  */
 public class texto {

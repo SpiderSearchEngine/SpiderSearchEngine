@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Logic;
 
 import Logic.List;
 
 /**
- *
+ * Clase para la lista de keywords
  * @author Gerald M, Jairo O
  */
 public class keywordsReferencia <G>{
@@ -24,7 +20,7 @@ public class keywordsReferencia <G>{
        
     }
     /**
-     * Metodo que setear los URL's
+     * Metodo que modificar los URL's
      * @param URL 
      */
     public void setURL(G URL){

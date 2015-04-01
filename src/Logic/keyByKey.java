@@ -1,20 +1,11 @@
 package Logic;
 
-import Logic.List;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
+ * Clase para sacar una palabra
  * @author Gerald M, Jairo O
  */
 public class keyByKey <G>{
     private String dato;
-    //nodo 
     List lista=new List(null,null);
     //CircularList cir_lis=new CircularList(null);
     //Node nodo;
@@ -25,7 +16,7 @@ public class keyByKey <G>{
      */
     
     /**
-     * 
+     * Constructor de la clase
      * @param a_procesar 
      */
     public keyByKey(String a_procesar){
@@ -33,6 +24,7 @@ public class keyByKey <G>{
     }
 
     /**
+     * Une las palabra
      * @param args the command line arguments
      */
     

@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package GUI;
 
 /**
- *
+ * Ventana en que se ingresa la busqueda
  * @author Jairo and Gerald
  */
 public class ventanaInicial extends javax.swing.JFrame {

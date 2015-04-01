@@ -23,8 +23,8 @@ public class extraerLinks {
         this._url=url;
     }
     /**
-     * 
-     * @param string_url
+     * Metodo que extrae el HTML de la pagina web
+     * @param string_url. Pagina solicitada
      * @throws MalformedURLException
      * @throws IOException 
      */
@@ -42,8 +42,8 @@ public class extraerLinks {
         extraerURL(contenido);
     }
     /**
-     * 
-     * @param contenido 
+     * Metodo para obtener solamente los links
+     * @param contenido. HTML de la pagina web
      */
     public void extraerURL(String contenido){
         Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
@@ -52,9 +52,9 @@ public class extraerLinks {
             verificar(matcher.group(1), _url);
 	}
     /**
-     * 
-     * @param dato
-     * @param url 
+     * Metodo para dar el formato a los links
+     * @param dato. link a analizar
+     * @param url. Pagina solicitada
      */
     private void verificar(String dato, String url){
         Character chardato =dato.charAt(0);
@@ -78,6 +78,5 @@ public class extraerLinks {
         }
         else
             System.out.println(url+"/"+dato);
-    }
-    
+    }    
 }

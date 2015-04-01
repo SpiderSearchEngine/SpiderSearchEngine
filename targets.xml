@@ -6,8 +6,8 @@ and open the template in the editor.
 -->
 
 <targets>
-    <URL>www.amazon.com/</URL>
     <URL>www.google.com</URL>
+    <URL>www.amazon.com/</URL>    
     <URL>www.nacion.com</URL>
     <URL>www.stackoverflow.com/</URL>
     <URL>www.aldia.cr/</URL> 

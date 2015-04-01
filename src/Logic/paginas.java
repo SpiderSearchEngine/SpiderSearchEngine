@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Logic;
 
 /**
- *
- *@author Gerald M, Jairo O
+ * Clase para el objeto de paginas web que se presenta al usuario
+ * @author Gerald M, Jairo O
  */
 public class paginas extends url{
     
@@ -36,6 +31,5 @@ public class paginas extends url{
      */
     public void setTrustworthy (int trustworthy){
         this._trustworthy=trustworthy;
-    }
-    
+    }    
 }
