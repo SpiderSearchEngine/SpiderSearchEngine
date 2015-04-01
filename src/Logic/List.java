@@ -172,8 +172,4 @@ public class List <G>{
             tmp=tmp.getNextNode();
         }
     }
-
-    void add(String substring) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

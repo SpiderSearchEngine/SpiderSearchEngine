@@ -9,10 +9,16 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * Clase para obtener los links de las paginas web
+ * @author Gerald M, Jairo O.
+ */
 public class extraerLinks {
     private String _url;
-    
+    /**
+     * Constructor de la clase
+     * @param url 
+     */
     public extraerLinks(String url){
         this._url=url;
     }

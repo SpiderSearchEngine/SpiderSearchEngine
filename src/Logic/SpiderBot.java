@@ -1,5 +1,3 @@
-
-
 package Logic;
 
 import java.io.IOException;
@@ -20,10 +18,8 @@ public class SpiderBot {
     /**
      * Constructor de la clase
      */
-    public SpiderBot(){}/*String url){
-        
-        this._url=url;
-    }*/
+    public SpiderBot(){
+    }
     /**
      * Metodo para obtener los datos de un xml, en este caso,el de "targets".
      * @param url. Direccion del xml.
@@ -37,10 +33,7 @@ public class SpiderBot {
         QueueList ql = new QueueList(null, null);        
         for (int i=indice; i<=19; i+=2){
             ql.enqueue(new url (nAsoc,lxml.leer(url, i)));
-            
-            
         }
-        
         procesarURLS pUrls = new procesarURLS();
         pUrls.procesar(ql);
     }

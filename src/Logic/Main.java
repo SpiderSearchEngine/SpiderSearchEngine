@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author jairo
+ * @author Gerald M, Jairo O
  */
 public class Main {    
     /**
@@ -23,10 +23,7 @@ public class Main {
         
         SpiderBot sb = new SpiderBot();
         sb.obtenerurl("targets.xml",1, 0);
-        //leerxml lxml=new leerxml();
-        //lxml.leer("targets.xml",1);
-        //extraerLinks el=new extraerLinks("http://www.amazon.com");
-        //el.extraerTexto("http://www.amazon.com");
+        
         
     }
 }
