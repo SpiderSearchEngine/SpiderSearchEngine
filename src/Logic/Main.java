@@ -22,10 +22,6 @@ public class Main {
      */
     public static void main(String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException{
         
-        List l = new List(null, null);
-        url u = new url (0, "daniel.es");
-        //leerxml lx = new leerxml ();
-        //lx.leer("/home/jairo/NetBeansProjects/SpiderSearchEngine/src/XML/spider.xml");
         SpiderBot sb = new SpiderBot();
         sb.obtenerurl("/home/jairo/NetBeansProjects/SpiderSearchEngine/src/XML/targets.xml",1);
     
