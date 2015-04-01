@@ -11,30 +11,53 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class extraerLinks {
-	public static String linkfinal;
-	public String extraer_el_texto(String string_url)throws MalformedURLException, IOException{
-		
-		URL url=new URL(string_url);
-		URLConnection conexion=url.openConnection();
-		InputStream entrada =conexion.getInputStream();
-		BufferedReader br= new BufferedReader(new InputStreamReader(entrada)); 
-		String contenido="";
-		String linea=br.readLine();
-		while (linea!=null){
-			contenido+=linea;
-			linea=br.readLine();
-		}
-		return contenido;
+    private String _url;
+    
+    public extraerLinks(String url){
+        this._url=url;
+    }
+    public void extraerTexto(String string_url)throws MalformedURLException, IOException{
+        URL url = new URL(string_url);
+        URLConnection conexion=url.openConnection();
+        InputStream entrada =conexion.getInputStream();
+        BufferedReader br= new BufferedReader(new InputStreamReader(entrada)); 
+        String contenido="";
+        String linea=br.readLine();
+        while (linea!=null){
+                contenido+=linea;
+                linea=br.readLine();
+        }
+        extraerURL(contenido);
+    }
+    
+    public void extraerURL(String contenido){
+        Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
+        Matcher matcher=patron.matcher(contenido);
+        while(matcher.find())
+            verificar(matcher.group(1), _url);
 	}
-	
 
-	public void leer_solo_los_URL(String contenido){
-		Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
-		Matcher matcher=patron.matcher(contenido);
-		while(matcher.find()){
-			System.out.println(matcher.group(1));
-			linkfinal=matcher.group(1);
-		}
-		System.out.println(linkfinal);
-	}
+    private void verificar(String dato, String url){
+        Character chardato =dato.charAt(0);
+        if(Character.toString(chardato).equals("/"))
+            System.out.println(url+dato);
+        else if (Character.toString(chardato).equals("#"))
+            System.out.println("nada");
+        else if (Character.toString(chardato).equals("h")){
+            
+            String tmp = "";
+            int i=0;
+            while((tmp!="https:" || tmp!="http:") && i<6){
+                tmp+=dato.charAt(i);
+                i++;              
+            }
+            if (tmp!="https:" || tmp!="http:" )
+                System.out.println(dato);
+            else
+                System.out.println(url+"/"+dato); 
+        }
+        else
+            System.out.println(url+"/"+dato);
+    }
+    
 }

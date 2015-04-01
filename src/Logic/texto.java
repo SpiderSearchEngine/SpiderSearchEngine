@@ -20,17 +20,14 @@ import java.net.URLConnection;
  * @author gerald
  */
 public class texto {
+    public static String linkfinal;
     /**
-     * 
-     */
-	public static String linkfinal;
-        /**
-         * 
-         * @return
-         * @throws MalformedURLException
-         * @throws IOException 
-         */
-	public String extraer_el_texto(String string_url)throws MalformedURLException, IOException{
+    * 
+    * @return
+    * @throws MalformedURLException
+    * @throws IOException 
+    */
+    public String extraerTexto(String string_url)throws MalformedURLException, IOException{
 		// TODO Auto-generated method stub
 	
 		//Pasar el URL
@@ -56,6 +53,4 @@ public class texto {
 			
 		
 	}
-	
-
 }
