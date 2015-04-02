@@ -5,12 +5,12 @@ package GUI;
  * Ventana que presenta los resultados
  * @author gerald
  */
-public class Spider_Search_Engine extends javax.swing.JPanel {
+public class resultados extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    public Spider_Search_Engine() {
+    public resultados() {
         initComponents();
     }
 

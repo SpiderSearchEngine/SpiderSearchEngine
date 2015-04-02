@@ -4,13 +4,13 @@ package GUI;
  * Ventana en que se ingresa la busqueda
  * @author Jairo and Gerald
  */
-public class ventanaInicial extends javax.swing.JFrame {
+public class inicial extends javax.swing.JFrame {
 
-    private String a_buscar;
+    private String aBuscar;
     /**
      * Creates new form NewJFrame
      */
-    public ventanaInicial() {
+    public inicial() {
         initComponents();
     }
 
@@ -24,16 +24,16 @@ public class ventanaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        TF_a_buscar = new javax.swing.JFormattedTextField();
+        TF_aBuscar = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TF_a_buscar.setName("TF_a_buscar"); // NOI18N
-        TF_a_buscar.addActionListener(new java.awt.event.ActionListener() {
+        TF_aBuscar.setName("TF_aBuscar"); // NOI18N
+        TF_aBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_a_buscarActionPerformed(evt);
+                TF_aBuscarActionPerformed(evt);
             }
         });
 
@@ -59,7 +59,7 @@ public class ventanaInicial extends javax.swing.JFrame {
                 .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TF_a_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_aBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
                         .addComponent(jButton1)
                         .addContainerGap(140, Short.MAX_VALUE))
@@ -75,7 +75,7 @@ public class ventanaInicial extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(TF_a_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TF_aBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
@@ -99,9 +99,9 @@ public class ventanaInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TF_a_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_a_buscarActionPerformed
+    private void TF_aBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_aBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_a_buscarActionPerformed
+    }//GEN-LAST:event_TF_aBuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -128,13 +128,13 @@ public class ventanaInicial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventanaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventanaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventanaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ventanaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -144,12 +144,12 @@ public class ventanaInicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaInicial().setVisible(true);
+                new inicial().setVisible(true);
             }
         });
     }
     public void ejemplo(){
-        a_buscar=TF_a_buscar.getText();
+        aBuscar=TF_aBuscar.getText();
         String[] expresiones=new String[21];
             expresiones[0]=",";
             expresiones[1]=".";
@@ -173,14 +173,14 @@ public class ventanaInicial extends javax.swing.JFrame {
             expresiones[19]="}";
 
             for(int i=0; i<20;i++){
-             a_buscar=a_buscar.replace(expresiones[i], "");
-        TF_a_buscar.setText("El msj es "+a_buscar);
+             aBuscar=aBuscar.replace(expresiones[i], "");
+        TF_aBuscar.setText("El msj es "+aBuscar);
     }
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField TF_a_buscar;
+    private javax.swing.JFormattedTextField TF_aBuscar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
