@@ -15,13 +15,16 @@ import org.xml.sax.SAXException;
  * Clase que iniciara la aplicacion
  * @author Gerald M, Jairo O
  */
-public class Main {    
+public class Main <G>{    
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException{
+    public static void main (String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
         
         SpiderBot sb = new SpiderBot();
-        sb.obtenerurl("targets.xml",1, 0);        
+        sb.obtenerurl("targets.xml",1, 0);     
+       
+        
+        
     }
 }
