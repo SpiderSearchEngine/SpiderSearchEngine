@@ -59,8 +59,28 @@ public class extraerLinks {
     private void verificar(String dato, String url){
         if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#"))
             System.out.println("1");
-        else if (dato.startsWith("http") || dato.startsWith("https"))
-            System.out.println("2");
+        else if (dato.startsWith("https")){
+            String str ="";
+            int i=8;
+            while(!(str.endsWith(".org") || str.endsWith(".com") ||str.endsWith(".cr")
+                || str.endsWith(".ac") || str.endsWith(".es") || str.endsWith(".mx")
+                /*|| str.endsWith(".co")*/ || str.endsWith(".net"))){
+                str+=dato.substring(i, i+1);
+                i++;
+                }
+            System.out.println(str);
+        }
+        else if (dato.startsWith("http")){
+            String str ="";
+            int i=7;
+            while(!(str.endsWith(".org") || str.endsWith(".com") ||str.endsWith(".cr")
+                    || str.endsWith(".ac") || str.endsWith(".es") || str.endsWith(".mx")
+                    || str.endsWith(".co") || str.endsWith(".net"))){
+                str+=dato.substring(i, i+1);
+                i++;
+                }
+            System.out.println(str);
+        }
         else if (dato.length()>1 && dato.startsWith("/") )
             System.out.println(url+dato);
         else

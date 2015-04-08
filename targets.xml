@@ -5,10 +5,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<targets>       
+<targets>
+    <URL>www.amazon.com</URL>       
     <URL>es.wikipedia.org/wiki/Deportivo_Saprissa</URL>
-    <URL>www.google.com</URL>
-    <URL>www.amazon.com</URL>  
+    <URL>www.google.com</URL>  
     <URL>www.nacion.com</URL>
     <URL>www.stackoverflow.com/</URL>
     <URL>www.aldia.cr</URL> 
