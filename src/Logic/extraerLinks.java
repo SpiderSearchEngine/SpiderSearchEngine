@@ -57,26 +57,14 @@ public class extraerLinks {
      * @param url. Pagina solicitada
      */
     private void verificar(String dato, String url){
-        Character chardato =dato.charAt(0);
-        System.out.println(url+dato);
-        if(Character.toString(chardato).equals("/"))
+        if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#"))
+            System.out.println("1");
+        else if (dato.startsWith("http") || dato.startsWith("https"))
+            System.out.println("2");
+        else if (dato.length()>1 && dato.startsWith("/") )
             System.out.println(url+dato);
-        else if (Character.toString(chardato).equals("#"))
-            System.out.println("nada");
-        else if (Character.toString(chardato).equals("h")){
-            
-            String tmp = "";
-            int i=0;
-            while((tmp!="https:" || tmp!="http:") && i<6){
-                tmp+=dato.charAt(i);
-                i++;              
-            }
-            if (tmp!="https:" || tmp!="http:" )
-                System.out.println(dato);
-            else
-                System.out.println(url+"/"+dato); 
-        }
         else
-            System.out.println(url+"/"+dato);
-    }    
+            System.out.println("3");
+        
+    }
 }

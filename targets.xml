@@ -5,16 +5,16 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<targets>
+<targets>       
+    <URL>es.wikipedia.org/wiki/Deportivo_Saprissa</URL>
     <URL>www.google.com</URL>
-    <URL>www.amazon.com/</URL>    
+    <URL>www.amazon.com</URL>  
     <URL>www.nacion.com</URL>
     <URL>www.stackoverflow.com/</URL>
-    <URL>www.aldia.cr/</URL> 
-    <URL>www.ucr.ac.cr/</URL>
-    <URL>www.utn.ac.cr/</URL>
-    <URL>www.oceano.com/oceano/</URL>   
-    <URL>es.wikipedia.org/wiki/Wikipedia:Portada</URL> 
+    <URL>www.aldia.cr</URL> 
+    <URL>www.ucr.ac.cr</URL>
+    <URL>www.utn.ac.cr</URL>
+    <URL>www.oceano.com/oceano</URL> 
     <URL>www.tec.ac.cr/Paginas/Tecnol%C3%B3gico%20de%20Costa%20Rica.aspx</URL>
-    <URL>www.linuxhispano.net/2013/09/08/manejo-de-hilos-en-java-tutorial/</URL>
+    <URL>www.linuxhispano.net/2013/09/08/manejo-de-hilos-en-java-tutorial</URL>
 </targets>

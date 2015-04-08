@@ -10,8 +10,7 @@ import org.xml.sax.SAXException;
  */
 public class SpiderBot {
     
-    private String _url;
-    
+    private String _url; 
     private int _maxthreads;
     private int _maxprofundidad;
     private int _reindex;   

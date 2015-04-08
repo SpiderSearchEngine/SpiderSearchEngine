@@ -1,7 +1,4 @@
-
 package Logic;
-
-import Logic.List;
 
 /**
  * Clase para la lista de keywords
