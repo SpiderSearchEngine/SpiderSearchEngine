@@ -57,6 +57,7 @@ public class extraerLinks {
      * @param url. Pagina solicitada
      */
     private void verificar(String dato, String url){
+        
         if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#"))
             System.out.println("1");
         else if (dato.startsWith("https")){
@@ -64,7 +65,7 @@ public class extraerLinks {
             int i=8;
             while(!(str.endsWith(".org") || str.endsWith(".com") ||str.endsWith(".cr")
                 || str.endsWith(".ac") || str.endsWith(".es") || str.endsWith(".mx")
-                /*|| str.endsWith(".co")*/ || str.endsWith(".net"))){
+                || str.endsWith(".co") || str.endsWith(".net"))){
                 str+=dato.substring(i, i+1);
                 i++;
                 }
