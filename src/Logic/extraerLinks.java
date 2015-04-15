@@ -28,7 +28,7 @@ public class extraerLinks {
      * @throws MalformedURLException
      * @throws IOException 
      */
-    public void extraerTexto(String string_url)throws MalformedURLException, IOException{
+    public StackList extraerTexto(String string_url, int numAsoc) throws MalformedURLException, IOException{
         URL url = new URL(string_url);
         URLConnection conexion=url.openConnection();
         InputStream entrada =conexion.getInputStream();
@@ -39,53 +39,49 @@ public class extraerLinks {
                 contenido+=linea;
                 linea=br.readLine();
         }
-        extraerURL(contenido);
+        return extraerURL(contenido, numAsoc);
     }
     /**
      * Metodo para obtener solamente los links
      * @param contenido. HTML de la pagina web
      */
-    public void extraerURL(String contenido){
+    private StackList extraerURL(String contenido, int numAsoc) {
         Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
         Matcher matcher=patron.matcher(contenido);
+        StackList sl = new StackList (null);
         while(matcher.find())
-            verificar(matcher.group(1), _url);
-	}
+            sl.push(matcher.group(1));
+        return verificar(sl, _url, numAsoc);
+    }
+
+    
+    
     /**
      * Metodo para dar el formato a los links
      * @param dato. link a analizar
      * @param url. Pagina solicitada
      */
-    private void verificar(String dato, String url){
-        
-        if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#"))
-            System.out.println("1");
-        else if (dato.startsWith("https")){
-            String str ="";
-            int i=8;
-            while(!(str.endsWith(".org") || str.endsWith(".com") ||str.endsWith(".cr")
-                || str.endsWith(".ac") || str.endsWith(".es") || str.endsWith(".mx")
-                || str.endsWith(".co") || str.endsWith(".net"))){
-                str+=dato.substring(i, i+1);
-                i++;
-                }
-            System.out.println(str);
+    private StackList verificar(StackList pila, String url, int numAsoc){  
+        StackList sl = new StackList (null);
+        while (pila.top()!=null){
+            String dato = (String)pila.top().getData();
+            if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#") || dato.startsWith("https"))
+                pila.pop();
+            else if (dato.startsWith("http")){
+                String str ="";
+                int i=7;
+                str=dato.substring(i,dato.length()-1);
+                sl.push(new url(str, numAsoc+1));
+                pila.pop();
+            }
+            else if (dato.length()>1 && dato.startsWith("/") ){
+                sl.push(new url(url+dato, numAsoc+1));
+                pila.pop();
+            }
+            else{
+                pila.pop();
+            }
         }
-        else if (dato.startsWith("http")){
-            String str ="";
-            int i=7;
-            while(!(str.endsWith(".org") || str.endsWith(".com") ||str.endsWith(".cr")
-                    || str.endsWith(".ac") || str.endsWith(".es") || str.endsWith(".mx")
-                    || str.endsWith(".co") || str.endsWith(".net"))){
-                str+=dato.substring(i, i+1);
-                i++;
-                }
-            System.out.println(str);
-        }
-        else if (dato.length()>1 && dato.startsWith("/") )
-            System.out.println(url+dato);
-        else
-            System.out.println("3");
-        
+        return sl;
     }
 }

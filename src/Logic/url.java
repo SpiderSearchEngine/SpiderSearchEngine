@@ -13,7 +13,7 @@ public class url {
      * @param NumAsoc
      * @param direccion 
      */
-    public url (int NumAsoc, String direccion){
+    public url (String direccion, int NumAsoc){
         this._NumAsoc=NumAsoc;
         this._direccion=direccion;
     }/**

@@ -19,7 +19,9 @@ public class procesarURLS {
      * @throws IOException 
      */
     public void procesar (QueueList cola) throws IOException{
-        String pag = (((url)cola.dequeue().getData()).getDireccion());
+        url URL = ((url)(cola.dequeue().getData()));
+        String pag = URL.getDireccion();
+        int numAsoc = URL.getNumAsoc();
         if (!(pag.endsWith(".org")|| pag.endsWith(".com") || pag.endsWith(".cr")
                 || pag.endsWith(".ac") || pag.endsWith(".es") || pag.endsWith(".mx")
                 || pag.endsWith(".co") || pag.endsWith(".net"))){
@@ -32,12 +34,14 @@ public class procesarURLS {
                 i++;
                 }
             extraerLinks el = new extraerLinks(str);
-            el.extraerTexto("http://"+pag);
+            el.extraerTexto(pag, numAsoc);
+            
+            
             
         }
         else{
             extraerLinks el = new extraerLinks(pag);
-            el.extraerTexto("http://"+pag);
+            el.extraerTexto(pag, numAsoc);
         }
         
     }
