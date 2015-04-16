@@ -35,8 +35,6 @@ public class texto {
 		 * */
 		InputStream entrada =conexion.getInputStream();
 		BufferedReader lectura= new BufferedReader(new InputStreamReader(entrada));
-		
-		
 		String contenido="";
 		String linea=lectura.readLine();
 		while (linea!=null){
