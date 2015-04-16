@@ -11,11 +11,11 @@ package Logic;
  */
 public class NodeKeyClass <G> {
     private G pdata;
-    private nodoClass _num;
+    private Node _num;
     private NodeKeyClass _next;
     private NodeKeyClass _prev;
     
-    public NodeKeyClass(G pdata,NodeKeyClass next,NodeKeyClass prev, nodoClass num){
+    public NodeKeyClass(G pdata,NodeKeyClass next,NodeKeyClass prev, Node num){
         this.pdata=pdata;
         this._next=next;
         this._prev=prev;
@@ -26,14 +26,14 @@ public class NodeKeyClass <G> {
      * 
      * @param _num 
      */
-    public void setNumNode(nodoClass _num){
+    public void setNumNode(Node _num){
         this._num=_num;
     }
 
     /**
      * @return the _num
      */
-    public nodoClass getNumNode() {
+    public Node getNumNode() {
         return _num;
     }
 

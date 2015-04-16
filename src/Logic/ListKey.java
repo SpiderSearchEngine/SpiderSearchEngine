@@ -7,17 +7,17 @@ package Logic;
 
 /**
  *
- * @author gerald
+ * @author Gerald M, Jairo O.
  */ 
 public class ListKey  <G>{
-    private NodeKey _head;
-    private NodeKey _tail;
+    private NodeKeyClass _head;
+    private NodeKeyClass _tail;
     /**
      * Constructor de la clase.
      * @param _head. Primer elemento de la lista.
      * @param _tail. Ultimo elemento de la lista.
      */
-    public ListKey (NodeKey _head, NodeKey _tail){
+    public ListKey (NodeKeyClass _head, NodeKeyClass _tail){
         this._head=_head;
         this._tail=_tail;
     }
@@ -25,28 +25,28 @@ public class ListKey  <G>{
      * Metodo para obtener el head de la lista.
      * @return el nodo head.
      */
-    public NodeKey getHead (){
+    public NodeKeyClass getHead (){
         return this._head;
     }
     /**
      * Metodo para obtener el tail de la lista.
      * @return el nodo tail
      */
-    public NodeKey getTail (){
+    public NodeKeyClass getTail (){
         return this._tail;
     }
     /**
      * Metodo para modificar el head de la lista.
      * @param head. Nuevo valor del head.
      */
-    public void setHead(NodeKey head){
+    public void setHead(NodeKeyClass head){
         this._head=head;
     }
     /**
      * Metodo para modificar el tail de la lista.
      * @param tail. Nuevo valor del tail.
      */
-    public void setTail(NodeKey tail){
+    public void setTail(NodeKeyClass tail){
         this._tail=tail;
     }
     /**
@@ -55,11 +55,11 @@ public class ListKey  <G>{
      */
     public void insertHead(G pData){
         if (_head==null){
-            _head=(new NodeKey (pData, _head, _tail, null ));
+            _head=(new NodeKeyClass (pData, _head, _tail, null ));
             _tail=_head;
         }
         else{
-            _head=(new NodeKey (pData, _head, null, null));
+            _head=(new NodeKeyClass (pData, _head, null, null));
             _head.getNextNode().setPrevNode(_head);
         }       
     }
@@ -69,14 +69,14 @@ public class ListKey  <G>{
      */
     public void insertTail (G pData){
         if(_head==null){
-            _head= new NodeKey(pData, _head, _tail, null);
+            _head= new NodeKeyClass(pData, _head, _tail, null);
             _tail=_head;
         }
         else{
-            NodeKey tmp = _head;
+            NodeKeyClass tmp = _head;
             while(tmp.getNextNode()!=null)
                 tmp=tmp.getNextNode();
-            tmp.setNextNode(new NodeKey(pData, null, tmp, null));
+            tmp.setNextNode(new NodeKeyClass(pData, null, tmp, null));
             _tail=tmp.getNextNode();
         }
     }/**
@@ -84,8 +84,8 @@ public class ListKey  <G>{
      * @param pData. Dato a eliminar.
      * @return nodo eliminado.
      */
-    public NodeKey delete (G pData){
-        NodeKey tmp = null;
+    public NodeKeyClass delete (G pData){
+        NodeKeyClass tmp = null;
         if (_head == null)
             return _head;
         else if ((Integer)_head.getData()==(Integer)pData){
@@ -127,7 +127,7 @@ public class ListKey  <G>{
      * @return valor booleano (true, si esta; false, en caso contrario).
      */
     public boolean find (G pData){
-        NodeKey tmp = _head;
+        NodeKeyClass tmp = _head;
         boolean condition = false;
         while(tmp!=null){
             if ((Integer)tmp.getData()!=(Integer)pData)
@@ -143,7 +143,7 @@ public class ListKey  <G>{
      * Metodo para imprimir la lista.
      */
     public void print (){
-        NodeKey tmp=_head;
+        NodeKeyClass tmp=_head;
         int i=0;
         while(tmp!=null){
             System.out.println("pos= "+(i++)+" dato = "+tmp.getData());

@@ -14,7 +14,7 @@ public class WordbyWordClass <G>{
     G url;
     int contador=0;
     //nodo 
-    listaClass lista=new listaClass(null,null);
+    //listaClass lista=new listaClass(null,null);
     /**
      * Lo que pasa aqui es que se va a hacer referencia a la clase Texto para 
      * obtener puramente el texto plano en html
@@ -42,7 +42,7 @@ public class WordbyWordClass <G>{
 
                     
                     palabra= new WordsClass(nombre, url);
-                    lista.insertHead(palabra);
+                    //lista.insertHead(palabra);
                     System.out.println("Palabra nueva:"+nombre);
                     
             }dato=dato.substring(1,dato.length());
@@ -54,9 +54,10 @@ public class WordbyWordClass <G>{
         }
         System.out.println("Palabra nueva:"+nombre);
         palabra= new WordsClass(nombre, url);
-        lista.insertHead(palabra);
+        //lista.insertHead(palabra);
         //return nombre;
-        lista.print();
+        
+        //lista.print();
     }
 }
     

@@ -7,11 +7,12 @@ package Logic;
 
 /**
  *
- * @author gerald
+ * @author Gerald M, Jairo O.
  */
 public class WordsClass <G>{
     private G ListaUrl;
     private String Word;
+    
     public WordsClass(String Word,G ListaURL){
         this.ListaUrl=null;
         this.Word=Word;
