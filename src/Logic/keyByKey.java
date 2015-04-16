@@ -35,8 +35,8 @@ public class keyByKey <G>{
             Character chardato =dato.charAt(0);
             if(Character.toString(chardato).equals(" ")){
                 if (nombre!="")
-                    //lista.insertHead(nombre);
-                    //lista.insertHead(new keywords_referencia(nombre, cir_lis.getHead()));
+                    
+                    System.out.print(nombre);
                 dato=dato.substring(1,dato.length());
                 nombre="";
             }
@@ -45,7 +45,6 @@ public class keyByKey <G>{
                 dato=dato.substring(1,dato.length());
             }
         }
-        lista.print();
         
     }
 }
