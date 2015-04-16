@@ -15,13 +15,14 @@ public class procesarURLS {
     }
     /**
      * Metodo que procesa los URL's
-     * @param cola
+     * @param url URL: link a procesar
      * @throws IOException 
+     * @return StackList pila: con los links obtenidos
      */
-    public void procesar (QueueList cola) throws IOException{
-        url URL = ((url)(cola.dequeue().getData()));
+    public StackList procesar (url URL) throws IOException{
         String pag = URL.getDireccion();
         int numAsoc = URL.getNumAsoc();
+        StackList pila = new StackList(null);
         if (!(pag.endsWith(".org")|| pag.endsWith(".com") || pag.endsWith(".cr")
                 || pag.endsWith(".ac") || pag.endsWith(".es") || pag.endsWith(".mx")
                 || pag.endsWith(".co") || pag.endsWith(".net"))){
@@ -34,16 +35,12 @@ public class procesarURLS {
                 i++;
                 }
             extraerLinks el = new extraerLinks(str);
-            el.extraerTexto(pag, numAsoc);
-            
-            
-            
+            pila=el.extraerTexto(pag, numAsoc);
         }
         else{
             extraerLinks el = new extraerLinks(pag);
-            el.extraerTexto(pag, numAsoc);
-        }
-        
-    }
-    
+            pila=el.extraerTexto(pag, numAsoc);
+        }        
+        return pila;
+    }    
 }

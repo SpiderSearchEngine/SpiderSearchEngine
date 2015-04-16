@@ -29,11 +29,13 @@ public class SpiderBot {
      */
     public void obtenerurl(String url, int indice, int numAsoc) throws ParserConfigurationException, SAXException, IOException{
         leerxml lxml =new leerxml();
-        QueueList ql = new QueueList(null, null);        
+        QueueList cola = new QueueList(null, null);        
+        procesarURLS procUrls = new procesarURLS();
+        StackList pila = new StackList (null);
         for (int i=indice; i<=19; i+=2){
-            ql.enqueue(new url (lxml.leer(url, i), numAsoc));
-        }
-        procesarURLS pUrls = new procesarURLS();
-        pUrls.procesar(ql);
+            cola.enqueue(new url (lxml.leer(url, i), numAsoc));
+        }        
+        url URL = ((url)(cola.dequeue().getData()));
+        pila=procUrls.procesar(URL);
     }
 }
