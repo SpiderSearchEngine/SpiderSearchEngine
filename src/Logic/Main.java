@@ -21,9 +21,9 @@ public class Main {
      */
     public static void main (String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
         
-        SpiderBot sb = new SpiderBot();
-        sb.obtenerurl("targets.xml",1, 0);
-        CallofWordClass llamado=new CallofWordClass();
+        //SpiderBot sb = new SpiderBot();
+        //sb.obtenerurl("targets.xml",1, 0);
+        formatoTexto llamado=new formatoTexto();
         llamado.hacer_El_Llamado("http://es.wikipedia.org/wiki/Wikipedia:Portada");
         
         

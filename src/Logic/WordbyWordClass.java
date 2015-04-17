@@ -11,7 +11,7 @@ package Logic;
  */
 public class WordbyWordClass <G>{
     private String dato;
-    G url;
+    String url;
     int contador=0;
     //nodo 
     //listaClass lista=new listaClass(null,null);
@@ -19,7 +19,7 @@ public class WordbyWordClass <G>{
      * Lo que pasa aqui es que se va a hacer referencia a la clase Texto para 
      * obtener puramente el texto plano en html
      */
-    public WordbyWordClass(String a_procesar, G url){
+    public WordbyWordClass(String a_procesar, String url){
          this.dato=a_procesar;
          this.url=url;
          this.contador=this.contador+contador;

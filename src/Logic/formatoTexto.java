@@ -11,11 +11,11 @@ import java.io.IOException;
  *
  * @author Jairo O, Gerald M.
  */
-public class CallofWordClass {
+public class formatoTexto {
     //WordsClass lectura= new WordsClass(null,null);
     String dato;
-    String[] expresiones=new String[47];
-    public CallofWordClass(){
+    String[] expresiones=new String[48];
+    public formatoTexto(){
        expresiones[0]="ª";
        expresiones[1]="º";
        expresiones[2]="\\";
@@ -63,11 +63,12 @@ public class CallofWordClass {
        expresiones[44]="9";
        expresiones[45]="0";
        expresiones[46]="px";
+       expresiones[47]="\"";
     }
     
     public void hacer_El_Llamado(String url) throws IOException{
         
-       SacarCodigoClass extractor=new SacarCodigoClass();
+       extrarTexto extractor=new extrarTexto();
         dato=extractor.extraerTexto(url);
         //Aqui obtiene todo el texto o codigo HTML
         //System.out.println("1: "+dato);

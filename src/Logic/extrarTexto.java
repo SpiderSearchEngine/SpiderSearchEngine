@@ -17,7 +17,7 @@ import java.net.URLConnection;
  *
  *@author Jairo O, Gerald M.
  */
-public class SacarCodigoClass {
+public class extrarTexto {
 
     public static String linkfinal;
     /**
