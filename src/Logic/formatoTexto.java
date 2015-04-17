@@ -67,24 +67,22 @@ public class formatoTexto {
     }
     
     public void hacer_El_Llamado(String url) throws IOException{
-        
        extrarTexto extractor=new extrarTexto();
-        dato=extractor.extraerTexto(url);
-        //Aqui obtiene todo el texto o codigo HTML
-        //System.out.println("1: "+dato);
-
-        dato=dato.replaceAll("\\<.*?>", " ");
-        //System.out.println("2: "+dato);
-        for(int i=0; i<expresiones.length;i++){
-         dato=dato.replace(expresiones[i], " ");
-        }
+       dato=extractor.extraerTexto(url);
+       //Aqui obtiene todo el texto o codigo HTML
+       //System.out.println("1: "+dato);
+       dato=dato.replaceAll("\\<.*?>", " ");
+       //System.out.println("2: "+dato);
+       for(int i=0; i<expresiones.length;i++){
+           dato=dato.replace(expresiones[i], " ");
+       }
         //System.out.println("3: "+dato);
         /**
          * Aqui se instancia la clase key_by_key la cual 
          * me extrae palabra por palabra todo el html 
          * sin incluir los tags.
          */
-        WordbyWordClass palabra_obtencion=new WordbyWordClass(dato,url);
+        WordbyWordClass palabra_obtencion=new WordbyWordClass(dato, url);
         palabra_obtencion.procesar();
     }
        

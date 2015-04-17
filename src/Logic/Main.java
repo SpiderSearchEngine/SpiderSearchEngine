@@ -8,6 +8,7 @@ package Logic;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.StringTokenizer;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
@@ -25,7 +26,7 @@ public class Main {
         //sb.obtenerurl("targets.xml",1, 0);
         formatoTexto llamado=new formatoTexto();
         llamado.hacer_El_Llamado("http://es.wikipedia.org/wiki/Wikipedia:Portada");
-        
-        
-    }
+     
+    
+}
 }

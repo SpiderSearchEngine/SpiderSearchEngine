@@ -9,29 +9,33 @@ package Logic;
 * @author gerald
 */
 public class NodeKey <G> {
+    
     private G pdata;
-    private Node _num;
     private NodeKey _next;
     private NodeKey _prev;
-    public NodeKey(G pdata,NodeKey next,NodeKey prev, Node num){
+    private Node url;
+    private Node _num;
+    
+    
+    public NodeKey(G pdata, NodeKey next,NodeKey prev, Node num){
     this.pdata=pdata;
     this._next=next;
     this._prev=prev;
     this._num=num;
     }
-/**
-*
-* @param _num
-*/
+    /**
+    *
+    * @param _num
+    */
 public void setNumNode(Node _num){
     this._num=_num;
-    }
+}
 /**
 * @return the _num
 */
 public Node getNumNode() {
     return _num;
-    }
+}
 /**
 * @return the pdata
 */

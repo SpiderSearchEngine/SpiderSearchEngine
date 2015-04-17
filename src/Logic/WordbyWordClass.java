@@ -5,6 +5,8 @@
  */
 package Logic;
 
+import java.util.StringTokenizer;
+
 /**
  *
  * @author Jairo O, Gerald M.
@@ -22,37 +24,23 @@ public class WordbyWordClass <G>{
     public WordbyWordClass(String a_procesar, String url){
          this.dato=a_procesar;
          this.url=url;
-         this.contador=this.contador+contador;
     }
     /**
      * @param args the command line arguments
      */
     public void procesar(){
-
-        String nombre="";
-        while(!dato.equals("")){
-            Character chardato =dato.charAt(0);
-            //System.out.println("Char: "+chardato);
-            if(Character.toString(chardato).equals(" ")){
-                //System.out.println("wwww: "+nombre);
-                //return nombre; 
-                if (!nombre.equals(" ") && nombre.length()>3){
-                    
-                    System.out.println("Palabra nueva:"+nombre);
-                    
-            }dato=dato.substring(1,dato.length());
-            nombre="";}
-            else{
-                nombre=nombre+chardato.toString();
-                dato=dato.substring(1,dato.length());
-            }
-        }
-        System.out.println("Palabra nueva:"+nombre);
-        //palabra= new WordsClass(nombre, url);
-        //lista.insertHead(palabra);
-        //return nombre;
+        String palabra;
+        StringTokenizer st = new StringTokenizer(dato);
+        while (st.hasMoreTokens()) {
+            dato = st.nextToken();
+            if (dato.length()>=3 && (dato!="que" || dato!="ante" || dato!="bajo"
+                    || dato!="cabe" || dato!="con" || dato!="contra" ||dato!="desde"
+                    || dato!="entre" || dato!="hacia" || dato!="hasta" || dato!="para"
+                    || dato!="por" || dato!="según" || dato!="sin" || dato!="sobre"
+                    || dato!="tras"))
+                System.out.println(dato);        
         
-        //lista.print();
+        }
     }
 }
     
