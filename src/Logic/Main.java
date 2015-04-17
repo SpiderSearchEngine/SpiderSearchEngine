@@ -24,7 +24,7 @@ public class Main {
         SpiderBot sb = new SpiderBot();
         sb.obtenerurl("targets.xml",1, 0);
         CallofWordClass llamado=new CallofWordClass();
-        llamado.hacer_El_Llamado("http://www.google.com");
+        llamado.hacer_El_Llamado("http://es.wikipedia.org/wiki/Wikipedia:Portada");
         
         
     }

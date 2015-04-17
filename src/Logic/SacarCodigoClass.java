@@ -15,7 +15,7 @@ import java.net.URLConnection;
 
 /**
  *
- * @author gerald
+ *@author Jairo O, Gerald M.
  */
 public class SacarCodigoClass {
 

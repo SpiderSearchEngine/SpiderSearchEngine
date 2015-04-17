@@ -9,10 +9,10 @@ import java.io.IOException;
 
 /**
  *
- * @author gerald
+ * @author Jairo O, Gerald M.
  */
 public class CallofWordClass {
-    WordsClass lectura= new WordsClass(null,null);
+    //WordsClass lectura= new WordsClass(null,null);
     String dato;
     String[] expresiones=new String[47];
     public CallofWordClass(){
@@ -68,7 +68,6 @@ public class CallofWordClass {
     public void hacer_El_Llamado(String url) throws IOException{
         
        SacarCodigoClass extractor=new SacarCodigoClass();
-       extraerLinks extractor1= new extraerLinks(url);
         dato=extractor.extraerTexto(url);
         //Aqui obtiene todo el texto o codigo HTML
         //System.out.println("1: "+dato);

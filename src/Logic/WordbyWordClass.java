@@ -7,7 +7,7 @@ package Logic;
 
 /**
  *
- * @author gerald
+ * @author Jairo O, Gerald M.
  */
 public class WordbyWordClass <G>{
     private String dato;
@@ -28,7 +28,6 @@ public class WordbyWordClass <G>{
      * @param args the command line arguments
      */
     public void procesar(){
-        WordsClass palabra=null;
 
         String nombre="";
         while(!dato.equals("")){
@@ -38,11 +37,7 @@ public class WordbyWordClass <G>{
                 //System.out.println("wwww: "+nombre);
                 //return nombre; 
                 if (!nombre.equals("") && nombre.length()>3){
-                    System.out.println("leng es::"+nombre.length());
-
                     
-                    palabra= new WordsClass(nombre, url);
-                    //lista.insertHead(palabra);
                     System.out.println("Palabra nueva:"+nombre);
                     
             }dato=dato.substring(1,dato.length());
@@ -53,7 +48,7 @@ public class WordbyWordClass <G>{
             }
         }
         System.out.println("Palabra nueva:"+nombre);
-        palabra= new WordsClass(nombre, url);
+        //palabra= new WordsClass(nombre, url);
         //lista.insertHead(palabra);
         //return nombre;
         
