@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  *
  * @author Jairo O, Gerald M.
  */
-public class WordbyWordClass <G>{
+public class tokenizer <G>{
     private String dato;
     String url;
     int contador=0;
@@ -21,15 +21,15 @@ public class WordbyWordClass <G>{
      * Lo que pasa aqui es que se va a hacer referencia a la clase Texto para 
      * obtener puramente el texto plano en html
      */
-    public WordbyWordClass(String a_procesar, String url){
+    public tokenizer(String a_procesar, String url){
          this.dato=a_procesar;
          this.url=url;
     }
     /**
      * @param args the command line arguments
      */
-    public void procesar(){
-        String palabra;
+    public stackList procesar(){
+        stackList sl = new stackList (null);
         StringTokenizer st = new StringTokenizer(dato);
         while (st.hasMoreTokens()) {
             dato = st.nextToken();
@@ -38,9 +38,9 @@ public class WordbyWordClass <G>{
                     || dato!="entre" || dato!="hacia" || dato!="hasta" || dato!="para"
                     || dato!="por" || dato!="según" || dato!="sin" || dato!="sobre"
                     || dato!="tras"))
-                System.out.println(dato);        
-        
+                sl.push(dato);
         }
+        return sl;
     }
 }
     

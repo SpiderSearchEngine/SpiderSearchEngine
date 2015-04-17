@@ -4,15 +4,15 @@ package Logic;
  * Clase para crear las listas doblemente enlazadas.
  * @author Gerald M, Jairo O.
  */
-public class List <G>{
-    private Node _head;
-    private Node _tail;
+public class list <G>{
+    private node _head;
+    private node _tail;
     /**
      * Constructor de la clase.
      * @param _head. Primer elemento de la lista.
      * @param _tail. Ultimo elemento de la lista.
      */
-    public List (Node _head, Node _tail){
+    public list (node _head, node _tail){
         this._head=_head;
         this._tail=_tail;
     }
@@ -20,28 +20,28 @@ public class List <G>{
      * Metodo para obtener el head de la lista.
      * @return el nodo head.
      */
-    public Node getHead (){
+    public node getHead (){
         return this._head;
     }
     /**
      * Metodo para obtener el tail de la lista.
      * @return el nodo tail
      */
-    public Node getTail (){
+    public node getTail (){
         return this._tail;
     }
     /**
      * Metodo para modificar el head de la lista.
      * @param head. Nuevo valor del head.
      */
-    public void setHead(Node head){
+    public void setHead(node head){
         this._head=head;
     }
     /**
      * Metodo para modificar el tail de la lista.
      * @param tail. Nuevo valor del tail.
      */
-    public void setTail(Node tail){
+    public void setTail(node tail){
         this._tail=tail;
     }
     /**
@@ -50,11 +50,11 @@ public class List <G>{
      */
     public void insertHead(G pData){
         if (_head==null){
-            _head=(new Node (pData, _head, _tail));
+            _head=(new node (pData, _head, _tail));
             _tail=_head;
         }
         else{
-            _head=(new Node (pData, _head, null));
+            _head=(new node (pData, _head, null));
             _head.getNextNode().setPrevNode(_head);
         }       
     }
@@ -64,14 +64,14 @@ public class List <G>{
      */
     public void insertTail (G pData){
         if(_head==null){
-            _head= new Node(pData, _head, _tail);
+            _head= new node(pData, _head, _tail);
             _tail=_head;
         }
         else{
-            Node tmp = _head;
+            node tmp = _head;
             while(tmp.getNextNode()!=null)
                 tmp=tmp.getNextNode();
-            tmp.setNextNode(new Node(pData, null, tmp));
+            tmp.setNextNode(new node(pData, null, tmp));
             _tail=tmp.getNextNode();
         }
     }
@@ -81,23 +81,23 @@ public class List <G>{
      */
     public void insertInOrder(G pData){
         if (_head==null){
-            _head=new Node(pData, _head, _tail);
+            _head=new node(pData, _head, _tail);
             _tail=_head;
         }
         else if ((Integer)pData<(Integer)_head.getData()){
-            _head=(new Node(pData, _head,null));
+            _head=(new node(pData, _head,null));
             _head.getNextNode().setPrevNode(_head);
         }
         else{
-            Node tmp = _head;
+            node tmp = _head;
             while(tmp.getNextNode()!=null && ((Integer)tmp.getNextNode().getData()<(Integer)pData))
                 tmp=tmp.getNextNode();
             if(tmp.getNextNode()==null){
-                tmp.setNextNode(new Node(pData,null,tmp));
+                tmp.setNextNode(new node(pData,null,tmp));
                 _tail=tmp.getNextNode();
             }
             else{
-                tmp.setNextNode(new Node(pData, tmp.getNextNode(),tmp));
+                tmp.setNextNode(new node(pData, tmp.getNextNode(),tmp));
                 tmp.getNextNode().getNextNode().setPrevNode(tmp.getNextNode());
             }
         }
@@ -106,8 +106,8 @@ public class List <G>{
      * @param pData. Dato a eliminar.
      * @return nodo eliminado.
      */
-    public Node delete (G pData){
-        Node tmp = null;
+    public node delete (G pData){
+        node tmp = null;
         if (_head == null)
             return _head;
         else if ((Integer)_head.getData()==(Integer)pData){
@@ -149,23 +149,24 @@ public class List <G>{
      * @return valor booleano (true, si esta; false, en caso contrario).
      */
     public boolean find (G pData){
-        Node tmp = _head;
+        node tmp = _head;
         boolean condition = false;
         while(tmp!=null){
-            if ((Integer)tmp.getData()!=(Integer)pData)
+            if ((String)tmp.getData()!=(String)pData)
                 tmp=tmp.getNextNode();
             else{
                 condition=true;
                 break;
             }
         }
+        System.out.println(condition);
         return condition;        
     }
     /**
      * Metodo para imprimir la lista.
      */
     public void print (){
-        Node tmp=_head;
+        node tmp=_head;
         int i=0;
         while(tmp!=null){
             System.out.println("pos= "+(i++)+" dato = "+tmp.getData());

@@ -12,9 +12,10 @@ import java.io.IOException;
  * @author Jairo O, Gerald M.
  */
 public class formatoTexto {
-    //WordsClass lectura= new WordsClass(null,null);
-    String dato;
-    String[] expresiones=new String[48];
+    
+    private String dato;
+    private String[] expresiones=new String[48];
+    
     public formatoTexto(){
        expresiones[0]="ª";
        expresiones[1]="º";
@@ -66,24 +67,19 @@ public class formatoTexto {
        expresiones[47]="\"";
     }
     
-    public void hacer_El_Llamado(String url) throws IOException{
+    public stackList eliminarLinks(String url) throws IOException{
        extrarTexto extractor=new extrarTexto();
        dato=extractor.extraerTexto(url);
-       //Aqui obtiene todo el texto o codigo HTML
-       //System.out.println("1: "+dato);
        dato=dato.replaceAll("\\<.*?>", " ");
-       //System.out.println("2: "+dato);
        for(int i=0; i<expresiones.length;i++){
            dato=dato.replace(expresiones[i], " ");
        }
-        //System.out.println("3: "+dato);
-        /**
-         * Aqui se instancia la clase key_by_key la cual 
-         * me extrae palabra por palabra todo el html 
-         * sin incluir los tags.
-         */
-        WordbyWordClass palabra_obtencion=new WordbyWordClass(dato, url);
-        palabra_obtencion.procesar();
-    }
-       
+       /**
+       * Aqui se instancia la clase key_by_key la cual 
+       * me extrae palabra por palabra todo el html 
+       * sin incluir los tags.
+       */
+       tokenizer token=new tokenizer(dato, url);
+       return token.procesar();
+    }       
 }

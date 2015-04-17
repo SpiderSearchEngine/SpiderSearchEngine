@@ -8,16 +8,15 @@ package Logic;
 *
 * @author gerald
 */
-public class NodeKey <G> {
+public class nodeKey <G> {
     
     private G pdata;
-    private NodeKey _next;
-    private NodeKey _prev;
-    private Node url;
-    private Node _num;
+    private nodeKey _next;
+    private nodeKey _prev;
+    private node _num;
     
     
-    public NodeKey(G pdata, NodeKey next,NodeKey prev, Node num){
+    public nodeKey(G pdata, nodeKey next,nodeKey prev, node num){
     this.pdata=pdata;
     this._next=next;
     this._prev=prev;
@@ -27,13 +26,13 @@ public class NodeKey <G> {
     *
     * @param _num
     */
-public void setNumNode(Node _num){
+public void setNumNode(node _num){
     this._num=_num;
 }
 /**
 * @return the _num
 */
-public Node getNumNode() {
+public node getNumNode() {
     return _num;
 }
 /**
@@ -51,25 +50,25 @@ public void setData(G pdata) {
 /**
 * @return the _next
 */
-public NodeKey getNextNode() {
+public nodeKey getNextNode() {
     return _next;
     }
 /**
 * @param _next the _next to set
 */
-public void setNextNode(NodeKey _next) {
+public void setNextNode(nodeKey _next) {
     this._next = _next;
     }
 /**
 * @return the _prev
 */
-public NodeKey getPrevNode() {
+public nodeKey getPrevNode() {
     return _prev;
     }
 /**
 * @param _prev the _prev to set
 */
-public void setPrevNode(NodeKey _prev) {
+public void setPrevNode(nodeKey _prev) {
     this._prev = _prev;
     }
 }

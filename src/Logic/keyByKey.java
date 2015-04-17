@@ -6,14 +6,8 @@ package Logic;
  */
 public class keyByKey <G>{
     private String dato;
-    List lista=new List(null,null);
-    //CircularList cir_lis=new CircularList(null);
-    //Node nodo;
-    //keys_referencias objeto_keyword=new keywords_referencia(nombre, null);
-    /**
-     * Lo que pasa aqui es que se va a hacer referencia a la clase Texto para 
-     * obtener puramente el texto plano en html
-     */
+    list lista=new list(null,null);
+
     
     /**
      * Constructor de la clase

@@ -6,17 +6,18 @@
 package Logic;
 /**
 *
-* @author gerald
+* @author Gerald m, Jairo O
 */
-    public class ListKey <G>{
-        private NodeKey _head;
-        private NodeKey _tail;
+public class listKey <G>{
+    
+    private nodeKey _head;
+    private nodeKey _tail;
     /**
     * Constructor de la clase.
     * @param _head. Primer elemento de la lista.
     * @param _tail. Ultimo elemento de la lista.
     */
-    public ListKey (NodeKey _head, NodeKey _tail){
+    public listKey (nodeKey _head, nodeKey _tail){
         this._head=_head;
         this._tail=_tail;
         }
@@ -24,28 +25,28 @@ package Logic;
     * Metodo para obtener el head de la lista.
     * @return el nodo head.
     */
-    public NodeKey getHead (){
+    public nodeKey getHead (){
         return this._head;
         }
     /**
     * Metodo para obtener el tail de la lista.
     * @return el nodo tail
     */
-    public NodeKey getTail (){
+    public nodeKey getTail (){
         return this._tail;
         }
     /**
     * Metodo para modificar el head de la lista.
     * @param head. Nuevo valor del head.
     */
-    public void setHead(NodeKey head){
+    public void setHead(nodeKey head){
         this._head=head;
         }
     /**
     * Metodo para modificar el tail de la lista.
     * @param tail. Nuevo valor del tail.
     */
-    public void setTail(NodeKey tail){
+    public void setTail(nodeKey tail){
         this._tail=tail;
         }
     /**
@@ -54,11 +55,11 @@ package Logic;
     */
     public void insertHead(G pData){
         if (_head==null){
-            _head=(new NodeKey (pData, _head, _tail, null ));
+            _head=(new nodeKey (pData, _head, _tail, null ));
             _tail=_head;
         }
         else{
-            _head=(new NodeKey (pData, _head, null, null));
+            _head=(new nodeKey (pData, _head, null, null));
             _head.getNextNode().setPrevNode(_head);
         }
     }
@@ -68,14 +69,14 @@ package Logic;
     */
     public void insertTail (G pData){
         if(_head==null){
-            _head= new NodeKey(pData, _head, _tail, null);
+            _head= new nodeKey(pData, _head, _tail, null);
             _tail=_head;
         }
         else{
-            NodeKey tmp = _head;
+            nodeKey tmp = _head;
             while(tmp.getNextNode()!=null)
             tmp=tmp.getNextNode();
-            tmp.setNextNode(new NodeKey(pData, null, tmp, null));
+            tmp.setNextNode(new nodeKey(pData, null, tmp, null));
             _tail=tmp.getNextNode();
         }
     }/**
@@ -83,8 +84,8 @@ package Logic;
     * @param pData. Dato a eliminar.
     * @return nodo eliminado.
     */
-    public NodeKey delete (G pData){
-        NodeKey tmp = null;
+    public nodeKey delete (G pData){
+        nodeKey tmp = null;
         if (_head == null)
             return _head;
         else if ((Integer)_head.getData()==(Integer)pData){
@@ -126,10 +127,10 @@ package Logic;
     * @return valor booleano (true, si esta; false, en caso contrario).
     */
     public boolean find (G pData){
-        NodeKey tmp = _head;
+        nodeKey tmp = _head;
         boolean condition = false;
         while(tmp!=null){
-            if ((Integer)tmp.getData()!=(Integer)pData)
+            if ((String)tmp.getData()!=(String)pData)
                 tmp=tmp.getNextNode();
             else{
                 condition=true;
@@ -137,16 +138,16 @@ package Logic;
             }
             }
         return condition;
-        }
+    }
     /**
     * Metodo para imprimir la lista.
     */
     public void print (){
-        NodeKey tmp=_head;
+        nodeKey tmp=_head;
         int i=0;
         while(tmp!=null){
             System.out.println("pos= "+(i++)+" dato = "+tmp.getData());
             tmp=tmp.getNextNode();
         }
-        }
+    }
 }

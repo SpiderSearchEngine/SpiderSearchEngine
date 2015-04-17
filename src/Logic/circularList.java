@@ -4,13 +4,13 @@ package Logic;
  * Clase para crear las listas circulares.
  * @author Gerald M, Jairo O.
  */
-public class CircularList <G>{
-    private Node _head;
+public class circularList <G>{
+    private node _head;
     /**
      * Constructor de la clase.
      * @param _head. Referencia de insercion en la lista.
      */
-    public CircularList (Node _head){
+    public circularList (node _head){
         this._head=_head;
     }
     
@@ -18,14 +18,14 @@ public class CircularList <G>{
      * Metodo para obtener el head de la lista.
      * @return el nodo head.
      */    
-    public Node getHead (){
+    public node getHead (){
         return this._head;
     }
     /**
      * Metodo para modificar el head de la lista.
      * @param head. Nuevo valor del head.
      */
-    public void setHead(Node head){
+    public void setHead(node head){
         this._head=head;
     }
     /**
@@ -34,12 +34,12 @@ public class CircularList <G>{
      */
     public void insertHead (G pData){
         if (_head==null){
-            _head=new Node (pData, _head,_head );
+            _head=new node (pData, _head,_head );
             _head.setNextNode(_head);
             _head.setPrevNode(_head);
         }
         else {
-            _head=(new Node (pData, _head, _head.getPrevNode()));
+            _head=(new node (pData, _head, _head.getPrevNode()));
             _head.getNextNode().setPrevNode(_head);
             _head.getPrevNode().setNextNode(_head);
         }
@@ -50,15 +50,15 @@ public class CircularList <G>{
      */
     public void insertTail(G pData){
         if (_head==null){
-            _head=new Node (pData, _head,_head );
+            _head=new node (pData, _head,_head );
             _head.setNextNode(_head);
             _head.setPrevNode(_head);
         }
         else{
-            Node tmp=_head;
+            node tmp=_head;
             while (tmp.getNextNode()!=_head)
                 tmp=tmp.getNextNode();
-            tmp.setNextNode(new Node (pData, tmp.getNextNode(), tmp));
+            tmp.setNextNode(new node (pData, tmp.getNextNode(), tmp));
             tmp.getPrevNode().setPrevNode(tmp.getNextNode());
         }
     }
@@ -68,20 +68,20 @@ public class CircularList <G>{
      */
     public void insertInOrder(G pData){
         if (_head==null){
-            _head=new Node (pData, _head, _head);
+            _head=new node (pData, _head, _head);
             _head.setNextNode(_head);
             _head.setPrevNode(_head);
         }
         else if ((Integer)pData<(Integer)_head.getData()){            
-            _head=(new Node(pData, _head,_head.getPrevNode()));
+            _head=(new node(pData, _head,_head.getPrevNode()));
             _head.getNextNode().setPrevNode(_head);
             _head.getPrevNode().setNextNode(_head);            
         }
         else{
-            Node tmp=_head;
+            node tmp=_head;
             while(tmp.getNextNode()!=_head && (Integer)tmp.getNextNode().getData()<(Integer)pData)
                 tmp=tmp.getNextNode();
-            tmp.setNextNode(new Node (pData, tmp.getNextNode(), tmp));
+            tmp.setNextNode(new node (pData, tmp.getNextNode(), tmp));
             tmp.getNextNode().getNextNode().setPrevNode(tmp.getNextNode());
         }
     }
@@ -90,8 +90,8 @@ public class CircularList <G>{
      * @param pData. Dato a eliminar.
      * @return nodo eliminado.
      */
-    public Node delete (G pData){
-        Node tmp=null;
+    public node delete (G pData){
+        node tmp=null;
         if (_head==null)
             return null;
         else if ((Integer)_head.getData()==(Integer)pData && _head.getNextNode()==_head){
@@ -122,17 +122,17 @@ public class CircularList <G>{
      * @return valor booleano (true, si esta; false, en caso contrario).
      */
     public boolean find (G pData){
-        Node tmp = _head;
+        node tmp = _head;
         boolean condition = false;
         while(tmp.getNextNode()!=_head){
-            if ((Integer)tmp.getData()!= (Integer)pData)
+            if ((String)tmp.getData()!= (String)pData)
                 tmp=tmp.getNextNode();
             else{
                 condition=true;
                 break;
             }
         }
-        if ((Integer)tmp.getData()== (Integer)pData)
+        if ((String)tmp.getData()== (String)pData)
             condition=true;
         System.out.println(condition);
         return condition;        
@@ -141,7 +141,7 @@ public class CircularList <G>{
      * Metodo para imprimir la lista.
      */
     public void print (){
-        Node tmp=_head;
+        node tmp=_head;
         int i=0;
         while(tmp.getNextNode()!=_head){
             System.out.println("pos= "+(i++)+" dato = "+tmp.getData());

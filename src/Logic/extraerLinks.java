@@ -28,7 +28,7 @@ public class extraerLinks {
      * @throws MalformedURLException
      * @throws IOException 
      */
-    public StackList extraerTexto(String string_url, int numAsoc) throws MalformedURLException, IOException{
+    public stackList extraerTexto(String string_url, int numAsoc) throws MalformedURLException, IOException{
         URL url = new URL(string_url);
         URLConnection conexion=url.openConnection();
         InputStream entrada =conexion.getInputStream();
@@ -45,10 +45,10 @@ public class extraerLinks {
      * Metodo para obtener solamente los links
      * @param contenido. HTML de la pagina web
      */
-    private StackList extraerURL(String contenido, int numAsoc) {
+    private stackList extraerURL(String contenido, int numAsoc) {
         Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
         Matcher matcher=patron.matcher(contenido);
-        StackList sl = new StackList (null);
+        stackList sl = new stackList (null);
         while(matcher.find())
             sl.push(matcher.group(1));
         return verificar(sl, _url, numAsoc);
@@ -61,8 +61,8 @@ public class extraerLinks {
      * @param dato. link a analizar
      * @param url. Pagina solicitada
      */
-    private StackList verificar(StackList pila, String url, int numAsoc){  
-        StackList sl = new StackList (null);
+    private stackList verificar(stackList pila, String url, int numAsoc){  
+        stackList sl = new stackList (null);
         while (pila.top()!=null){
             String dato = (String)pila.top().getData();
             if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#") || dato.startsWith("https"))

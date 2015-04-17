@@ -10,24 +10,24 @@ package Logic;
  *
  * @author jairo
  */
-public class StackList <G>{
+public class stackList <G>{
     
-    private Node _head;
+    private node _head;
     
-    public StackList (Node head){
+    public stackList (node head){
         this._head=head;
     }
     
     public void push (G pData){
-        _head=new Node (pData, _head, null);
+        _head=new node (pData, _head, null);
     }
-    public Node pop (){
-        Node tmp = _head;
+    public node pop (){
+        node tmp = _head;
         _head = _head.getNextNode();
         tmp.setNextNode(null);
         return tmp;
     }
-    public Node top (){
+    public node top (){
         return _head;
     }
 }

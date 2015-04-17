@@ -4,15 +4,15 @@ package Logic;
  * Clase para manipular la cola.
  * @author Gerald M, Jairo O.
  */
-public class QueueList <G>{
-    private Node _head;
-    private Node _tail;
+public class queueList <G>{
+    private node _head;
+    private node _tail;
     /**
      * Constructor de la clase
      * @param head. Primer elemento de la cola.
      * @param tail. Ultimo elemento de la cola.
      */
-    public QueueList (Node head, Node tail){
+    public queueList (node head, node tail){
         this._head=head;
         this._tail=tail;
     }
@@ -22,9 +22,9 @@ public class QueueList <G>{
      */
     public void enqueue (G pData){
         if (_head == null)
-            _head=_tail=new Node (pData, null, null);
+            _head=_tail=new node (pData, null, null);
         else{
-            _tail.setNextNode(new Node (pData, null, _tail));
+            _tail.setNextNode(new node (pData, null, _tail));
             _tail=_tail.getNextNode();
         }
     }
@@ -32,11 +32,11 @@ public class QueueList <G>{
      * Metodo para desencolar
      * @return Nodo desencolado.
      */
-    public Node dequeue (){
+    public node dequeue (){
         if (_head == null)
             return null;
         else{
-            Node tmp=_head;
+            node tmp=_head;
             _head=_head.getNextNode();
             _head.setPrevNode(null);
             tmp.setNextNode(null);

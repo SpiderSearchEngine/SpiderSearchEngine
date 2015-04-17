@@ -17,12 +17,12 @@ public class procesarURLS {
      * Metodo que procesa los URL's
      * @param url URL: link a procesar
      * @throws IOException 
-     * @return StackList pila: con los links obtenidos
+     * @return stackList pila: con los links obtenidos
      */
-    public StackList procesar (url URL) throws IOException{
+    public stackList procesar (url URL) throws IOException{
         String pag = URL.getDireccion();
         int numAsoc = URL.getNumAsoc();
-        StackList pila = new StackList(null);
+        stackList pila = new stackList(null);
         if (!(pag.endsWith(".org")|| pag.endsWith(".com") || pag.endsWith(".cr")
                 || pag.endsWith(".ac") || pag.endsWith(".es") || pag.endsWith(".mx")
                 || pag.endsWith(".co") || pag.endsWith(".net"))){

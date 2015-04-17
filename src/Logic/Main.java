@@ -24,8 +24,8 @@ public class Main {
         
         //SpiderBot sb = new SpiderBot();
         //sb.obtenerurl("targets.xml",1, 0);
-        formatoTexto llamado=new formatoTexto();
-        llamado.hacer_El_Llamado("http://es.wikipedia.org/wiki/Wikipedia:Portada");
+        //formatoTexto llamado=new formatoTexto();
+        //llamado.hacer_El_Llamado("http://es.wikipedia.org/wiki/Wikipedia:Portada");
      
     
 }

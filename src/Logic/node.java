@@ -6,17 +6,17 @@ package Logic;
  * Clase para crear los nodos.
  * @author Jairo O, Gerald M.
  */
-public class Node <G>{
+public class node <G>{
     private G pdata;
-    private Node _next;
-    private Node _prev;
+    private node _next;
+    private node _prev;
     /**
      * Constructor de la clase.
      * @param pdata. dato para  insertar.
      * @param next. Siguiente nodo.
      * @param prev. anterior nodo.
      */
-    public Node (G pdata, Node next,  Node prev){
+    public node (G pdata, node next,  node prev){
         this.pdata=pdata;
         this._next=next;
         this._prev=prev;        
@@ -32,14 +32,14 @@ public class Node <G>{
      * Metodo para obtener el siguiente nodo.
      * @return. siguiente nodo.
      */
-    public Node getNextNode (){
+    public node getNextNode (){
         return _next;
     }
     /**
      * Metodo para obtener el anterior nodo.
      * @return el nodo anterior
      */
-    public Node getPrevNode (){
+    public node getPrevNode (){
         return _prev;
     }
     /**
@@ -53,14 +53,14 @@ public class Node <G>{
      * Metodo para modificar el siguiente nodo
      * @param next. Siguiente nodo para modifcar.
      */
-    public void setNextNode (Node next){
+    public void setNextNode (node next){
         this._next=next;
     }
     /**
      * Metodo para modificar el nodo previo.
      * @param prev. Nodo previo
      */
-    public void setPrevNode (Node prev){
+    public void setPrevNode (node prev){
         this._prev=prev;
     }
 }
