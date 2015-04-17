@@ -36,7 +36,7 @@ public class WordbyWordClass <G>{
             if(Character.toString(chardato).equals(" ")){
                 //System.out.println("wwww: "+nombre);
                 //return nombre; 
-                if (!nombre.equals("") && nombre.length()>3){
+                if (!nombre.equals(" ") && nombre.length()>3){
                     
                     System.out.println("Palabra nueva:"+nombre);
                     
