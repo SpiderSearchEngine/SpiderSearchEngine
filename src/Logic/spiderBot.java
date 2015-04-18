@@ -41,15 +41,16 @@ public class spiderBot {
         for (int i=indice; i<=19; i+=2){
             cola.enqueue(new url (lxml.leer(url, i), numAsoc));
         }        
+        
         url URL = ((url)(cola.dequeue().getData()));
         pilaUrl=procUrl.procesar(URL);
         
         while (pilaUrl.top()!=null)
-            cola.enqueue(pilaUrl.pop());
+            cola.enqueue((url)pilaUrl.pop().getData());
         
         cl.insertHead(URL.getDireccion());
         
-        pilaTexto=ft.eliminarLinks(url);
+        pilaTexto=ft.eliminarLinks((String)cl.getHead().getData());
         
         while(pilaTexto.top()!=null){
             if (l.find((String)pilaTexto.top().getData())==false){

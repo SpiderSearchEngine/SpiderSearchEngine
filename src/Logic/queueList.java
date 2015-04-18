@@ -43,4 +43,12 @@ public class queueList <G>{
             return tmp;
         }
     }
+    public void print (){
+        node tmp=_head;
+        int i=0;
+        while(tmp!=null){
+            System.out.println(((url)(tmp.getData())).getDireccion());
+            tmp=tmp.getNextNode();
+        }
+    } 
 }
