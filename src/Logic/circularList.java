@@ -134,7 +134,6 @@ public class circularList <G>{
         }
         if ((String)tmp.getData()== (String)pData)
             condition=true;
-        System.out.println(condition);
         return condition;        
     }
     /**

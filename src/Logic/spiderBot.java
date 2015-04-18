@@ -52,10 +52,12 @@ public class spiderBot {
         
         pilaTexto=ft.eliminarLinks((String)cl.getHead().getData());
         
+        
         while(pilaTexto.top()!=null){
-            if (l.find((String)pilaTexto.top().getData())==false){
-                l.insertHead(new palabra ((String)pilaTexto.pop().getData(), cl.getHead()));
-                ((palabra)(l.getHead().getData())).getListaReferencia().getHead().getNumNode().setData(0);
+            if (l.findSpecial((String)pilaTexto.top().getData())==false){
+                l.insertHead(new palabra ((String)pilaTexto.pop().getData(), lk));
+                ((palabra)l.getHead().getData()).insertar(cl.getHead());
+                ((palabra)(l.getHead().getData())).getListaReferencia().getHead().setNumNode(new node(0, null, null));
             }
             else{
                 node tmp= l.getHead();
@@ -68,11 +70,8 @@ public class spiderBot {
                     tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
                 }
                 else{
-                    node tmp3= l.getHead();
-                    while(((palabra)tmp3.getData()).getName()!=(String)pilaTexto.top().getData())
-                        tmp3=tmp3.getNextNode();
-                    ((palabra)(tmp3.getData())).getListaReferencia().insertHead((String)cl.getHead().getData());
-                    ((palabra)(tmp3.getData())).getListaReferencia().getHead().getNumNode().setData(0);
+                    ((palabra)(tmp.getData())).getListaReferencia().insertHead((String)cl.getHead().getData());
+                    ((palabra)(tmp.getData())).getListaReferencia().getHead().setNumNode(new node(0, null, null));
                 }
             }
         }

@@ -38,7 +38,7 @@ public class tokenizer <G>{
                     || dato!="entre" || dato!="hacia" || dato!="hasta" || dato!="para"
                     || dato!="por" || dato!="según" || dato!="sin" || dato!="sobre"
                     || dato!="tras"))
-                sl.push(dato);
+                sl.push((String)dato);
         }
         return sl;
     }

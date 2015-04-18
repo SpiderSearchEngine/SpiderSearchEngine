@@ -14,9 +14,9 @@ public class palabra <G>{
      * @param palabra
      * @param URL 
      */
-    public palabra(String palabra, node URL){
+    public palabra(String palabra, listKey lista){
        this.name=palabra;
-       this.url=URL;
+       this.listaReferencia=lista;
     }
     /**
      * Metodo para modificar nombre
@@ -47,8 +47,8 @@ public class palabra <G>{
         return listaReferencia;
     }
     
-    public void insertar (){
-        listaReferencia.insertHead(url);
+    public void insertar (node URL){
+        listaReferencia.insertHead(URL);
     }
     
 }

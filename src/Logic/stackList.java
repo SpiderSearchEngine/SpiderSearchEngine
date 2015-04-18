@@ -30,4 +30,12 @@ public class stackList <G>{
     public node top (){
         return _head;
     }
+    public void print (){
+        node tmp=_head;
+        int i=0;
+        while(tmp!=null){
+            System.out.println(tmp.getData());
+            tmp=tmp.getNextNode();
+        }
+    }
 }
