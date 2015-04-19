@@ -10,14 +10,36 @@ import org.xml.sax.SAXException;
  */
 public class spiderBot {
     
+    private queueList cola = new queueList(null, null);
+    private listKey lk = new listKey(null, null);
+    private list l = new list(null, null);
+    private circularList cl = new circularList(null);
+    private boolean permiso = false;
     private String _url; 
     private int _maxthreads;
     private int _maxprofundidad;
-    private int _reindex;   
+    private int _reindex;
+    
     /**
      * Constructor de la clase
      */
     public spiderBot(){
+    }
+    
+    public synchronized void generarCola (String url, int indice, int numAsoc) throws ParserConfigurationException, SAXException, IOException{
+        while(permiso==true){
+            try{
+                wait();
+            }
+            catch (InterruptedException e) {
+            }
+        }
+        leerxml lxml =new leerxml();
+        for (int i=indice; i<=19; i+=2){
+            cola.enqueue(new url (lxml.leer(url, i), numAsoc));
+        }
+        permiso=true;
+        notify();
     }
     /**
      * Metodo para obtener los datos de un xml, en este caso,el de "targets".
@@ -27,32 +49,36 @@ public class spiderBot {
      * @throws SAXException
      * @throws IOException 
      */
-    public void obtenerurl(String url, int indice, int numAsoc) throws ParserConfigurationException, SAXException, IOException{
-        leerxml lxml =new leerxml();
-        queueList cola = new queueList(null, null);
+    public synchronized void obtenerDatos() throws IOException{
+        
+        while(permiso==false){
+            try{
+                wait();
+            }
+            catch (InterruptedException e) {
+            }
+        }
+        permiso=false;
         stackList pilaUrl = new stackList (null);        
         stackList pilaTexto = new stackList (null);        
-        procesarURLS procUrl = new procesarURLS();        
-        list l = new list(null, null);
-        circularList cl = new circularList(null);
+        procesarURLS procUrl = new procesarURLS(); 
         formatoTexto ft = new formatoTexto();
-        listKey lk = new listKey(null, null);
-        
-        for (int i=indice; i<=19; i+=2){
-            cola.enqueue(new url (lxml.leer(url, i), numAsoc));
-        }        
         
         url URL = ((url)(cola.dequeue().getData()));
+        if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
+            node tmp=cl.getHead();
+            while(!((urlProcesado)(tmp.getData())).getDireccion().equals(URL.getDireccion()))
+                tmp=tmp.getNextNode();
+            ((urlProcesado)(tmp.getData())).setReferencia(((urlProcesado)(tmp.getData())).getReferencia()+1);
+        }
+        else{
         pilaUrl=procUrl.procesar(URL);
         
         while (pilaUrl.top()!=null)
             cola.enqueue((url)pilaUrl.pop().getData());
-        
-        cl.insertHead(URL.getDireccion());
-        
-        pilaTexto=ft.eliminarLinks((String)cl.getHead().getData());
-        
-        
+        cl.insertHead(new urlProcesado(URL.getDireccion(), 0));
+        pilaTexto=ft.eliminarLinks(((urlProcesado)cl.getHead().getData()).getDireccion());
+                
         while(pilaTexto.top()!=null){
             if (l.findSpecial((String)pilaTexto.top().getData())==false){
                 l.insertHead(new palabra ((String)pilaTexto.pop().getData(), lk));
@@ -63,17 +89,23 @@ public class spiderBot {
                 node tmp= l.getHead();
                 while(((palabra)tmp.getData()).getName()!=(String)pilaTexto.top().getData())
                     tmp=tmp.getNextNode();
-                if (((palabra)tmp.getData()).getListaReferencia().find((String)cl.getHead().getData())==true){
+                if (((palabra)tmp.getData()).getListaReferencia().find(((urlProcesado)(cl.getHead().getData())).getDireccion())==true){
                     nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
-                    while (tmp2.getData()!=(String)cl.getHead().getData())
+                    while (tmp2.getData()!=((urlProcesado)(cl.getHead().getData())).getDireccion())
                         tmp2=tmp2.getNextNode();
                     tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
                 }
                 else{
-                    ((palabra)(tmp.getData())).getListaReferencia().insertHead((String)cl.getHead().getData());
+                    ((palabra)(tmp.getData())).getListaReferencia().insertHead(((urlProcesado)(cl.getHead().getData())).getDireccion());
                     ((palabra)(tmp.getData())).getListaReferencia().getHead().setNumNode(new node(0, null, null));
                 }
             }
         }
+        }
+        permiso=true;
+        notify();
+    }
+    public void generarIndice(){
+        
     }
 }

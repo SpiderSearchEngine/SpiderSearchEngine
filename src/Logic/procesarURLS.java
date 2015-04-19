@@ -35,6 +35,7 @@ public class procesarURLS {
                 i++;
                 }
             extraerLinks el = new extraerLinks(str);
+            
             pila=el.extraerTexto(pag, numAsoc);
         }
         else{

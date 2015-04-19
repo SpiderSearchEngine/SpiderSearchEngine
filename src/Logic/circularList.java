@@ -125,14 +125,14 @@ public class circularList <G>{
         node tmp = _head;
         boolean condition = false;
         while(tmp.getNextNode()!=_head){
-            if ((String)tmp.getData()!= (String)pData)
+            if (!((urlProcesado)(tmp.getData())).getDireccion().equals((String)pData))
                 tmp=tmp.getNextNode();
             else{
                 condition=true;
                 break;
             }
         }
-        if ((String)tmp.getData()== (String)pData)
+        if (((urlProcesado)(tmp.getData())).getDireccion().equals((String)pData))
             condition=true;
         return condition;        
     }

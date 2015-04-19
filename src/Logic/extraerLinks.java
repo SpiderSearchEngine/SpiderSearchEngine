@@ -61,7 +61,7 @@ public class extraerLinks {
      * @param dato. link a analizar
      * @param url. Pagina solicitada
      */
-    private stackList verificar(stackList pila, String url, int numAsoc){  
+    private stackList verificar(stackList pila, String _url, int numAsoc){
         stackList sl = new stackList (null);
         while (pila.top()!=null){
             String dato = (String)pila.top().getData();
@@ -69,13 +69,13 @@ public class extraerLinks {
                 pila.pop();
             else if (dato.startsWith("http")){
                 String str ="";
-                int i=7;
-                str=dato.substring(i,dato.length()-1);
+                int i=0;
+                str=dato.substring(i,dato.length());
                 sl.push(new url(str, numAsoc+1));
                 pila.pop();
             }
             else if (dato.length()>1 && dato.startsWith("/") ){
-                sl.push(new url(url+dato, numAsoc+1));
+                sl.push(new url(_url+dato, numAsoc+1));
                 pila.pop();
             }
             else{

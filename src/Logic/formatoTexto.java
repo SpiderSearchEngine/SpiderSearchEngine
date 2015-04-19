@@ -68,7 +68,7 @@ public class formatoTexto {
     }
     
     public stackList eliminarLinks(String url) throws IOException{
-       extrarTexto extractor=new extrarTexto();
+       extraeTexto extractor=new extraeTexto();
        dato=extractor.extraerTexto(url);
        dato=dato.replaceAll("\\<.*?>", " ");
        for(int i=0; i<expresiones.length;i++){

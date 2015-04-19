@@ -5,19 +5,22 @@
  */
 package Logic;
 
+import com.sun.istack.internal.logging.Logger;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import sun.util.logging.PlatformLogger.Level;
 
 /**
  *
  *@author Jairo O, Gerald M.
  */
-public class extrarTexto {
+public class extraeTexto {
 
     public static String linkfinal;
     /**
@@ -26,8 +29,10 @@ public class extrarTexto {
     * @throws MalformedURLException
     * @throws IOException 
     */
-    public String extraerTexto(String string_url)throws MalformedURLException, IOException{
-		// TODO Auto-generated method stub
+    public String extraerTexto(String string_url)throws MalformedURLException, IOException, FileNotFoundException {
+        String contenido="";
+        try{
+        // TODO Auto-generated method stub
 	
 		//Pasar el URL
 		URL url= new URL(string_url);
@@ -42,14 +47,16 @@ public class extrarTexto {
 		BufferedReader lectura= new BufferedReader(new InputStreamReader(entrada));
 		
 		
-		String contenido="";
+		
 		String linea=lectura.readLine();
 		while (linea!=null){
 			contenido+=linea;
 			linea=lectura.readLine();
-		}
-		return contenido;
-			
-		
-	}
+                }
+        }
+		catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+        return contenido;
+    }
 }
