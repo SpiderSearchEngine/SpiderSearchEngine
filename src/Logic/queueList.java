@@ -43,4 +43,7 @@ public class queueList <G>{
             return tmp;
         }
     }
+    public node getHead(){
+        return this._head;
+    }
 }

@@ -14,8 +14,8 @@ public class paginas extends url{
      * @param direccion
      * @param trustworthy 
      */
-    public paginas (int NumAsoc, String direccion, int trustworthy){
-        super(direccion, NumAsoc);
+    public paginas (String direccion, int numReferencia, int trustworthy){
+        super(direccion, numReferencia);
         this._trustworthy=trustworthy;
     }
     /**
@@ -30,6 +30,6 @@ public class paginas extends url{
      * @param trustworthy 
      */
     public void setTrustworthy (int trustworthy){
-        this._trustworthy=trustworthy;
+        this._trustworthy=_trustworthy+trustworthy;
     }    
 }
