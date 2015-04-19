@@ -147,7 +147,7 @@ public class Buscador extends javax.swing.JFrame {
         });
         
         
-        texto.setText("<html><a href='http://www.google.com/'>Albin guapo</a></html>");
+        texto.setText("<html><a href='http://www.google.com/'>Resultados</a></html>");
         texto.setBounds(0,0,150,150);
         jPanel1.add(texto);
         texto.setVisible(true);

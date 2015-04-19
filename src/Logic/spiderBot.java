@@ -68,7 +68,7 @@ public class spiderBot {
         
         
         url URL = ((url)(cola.dequeue().getData()));
-        if (URL.getNumAsoc()<1){
+        if (URL.getNumAsoc()<2){
         if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
             
             node tmp=cl.getHead();
@@ -76,6 +76,7 @@ public class spiderBot {
                 tmp=tmp.getNextNode();
             ((urlProcesado)(tmp.getData())).setReferencia(((urlProcesado)(tmp.getData())).getReferencia()+1);
         }
+        
         else{
             
         pilaUrl=procUrl.procesar(URL);
@@ -108,12 +109,12 @@ public class spiderBot {
             }
         }
         }
+        cola.print();
         System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
         permiso=true;
         notify();
         }
         else{
-        System.out.println("entre");
         parar=false;
         permiso=true;
         notify();}
@@ -133,11 +134,11 @@ public class spiderBot {
         ArrayList UrlsProcesadas = new ArrayList();
         key.add("w");
         Url.add("w");
-        UrlsProcesadas.add(tmp.getData());
+        UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
         while (tmp.getNextNode()!=urlList.getHead()){
             key.add(" ");
             Url.add(" ");
-            UrlsProcesadas.add(tmp.getData());
+            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
             cfup.generate("indice1", key,Url,UrlsProcesadas);
             System.out.println(tmp.getData());
             tmp=tmp.getNextNode();
@@ -145,7 +146,7 @@ public class spiderBot {
             if (tmp.getNextNode()==urlList.getHead()){
                 key.add(" ");
                 Url.add(" ");
-                UrlsProcesadas.add(tmp.getData());
+                UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
                 cfup.generate("indice1", key,Url,UrlsProcesadas);
             }
         }

@@ -150,4 +150,13 @@ public class listKey <G>{
             tmp=tmp.getNextNode();
         }
     }
+    public void len (){
+        nodeKey tmp=_head;
+        int i=0;
+        while(tmp!=null){
+            i=i+1;
+            tmp=tmp.getNextNode();
+        }
+        System.out.println("keywords: "+i);
+    }
 }
