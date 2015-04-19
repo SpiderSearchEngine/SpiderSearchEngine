@@ -106,6 +106,70 @@ public class spiderBot {
         notify();
     }
     public void generarIndice(){
+        /**
+        
+    public void hacerXmlIndice1(circularList cirList) throws Exception{
+        cirList.print();
+        createXmlForUrlProcess cfup=new createXmlForUrlProcess();
+        node tmp= cirList.getHead();
+        ArrayList key = new ArrayList();
+        ArrayList Url = new ArrayList();
+        ArrayList UrlsProcesadas = new ArrayList();
+        key.add("w");
+        Url.add("w");
+        UrlsProcesadas.add(tmp.getData());
+        while (tmp.getNextNode()!=cirList.getHead()){
+            key.add(" ");
+            Url.add(" ");
+            UrlsProcesadas.add(tmp.getData());
+            cfup.generate("indice1", key,Url,UrlsProcesadas);
+            System.out.println(tmp.getData());
+            tmp=tmp.getNextNode();
+            tmp=tmp.getNextNode();
+            if (tmp.getNextNode()==cirList.getHead()){
+                key.add(" ");
+                Url.add(" ");
+                UrlsProcesadas.add(tmp.getData());
+                cfup.generate("indice1", key,Url,UrlsProcesadas);
+            }
+        }
+        cfup.generate("indice1", key,Url,UrlsProcesadas);
+    }
+    public void hacerXmlIndice2(list doubleList) throws Exception{
+        doubleList.print();
+        System.out.println("Ya se metio donde yo queria: ");
+        createXmlForKeywords cfkw=new createXmlForKeywords();
+        node tmp= doubleList.getHead();
+        nodeKey tmp2= ((palabra)(doubleList.getHead().getData())).getListaReferencia().getHead();
+        ArrayList key = new ArrayList();
+        ArrayList links = new ArrayList();
+        ArrayList palabras = new ArrayList();
+        //key.add(" ");
+        //links.add(" ");
+        //palabras.add(((palabra)tmp.getData()).getName());
+        while (tmp.getNextNode()!=null){
+            key.add(" ");
+            while (tmp2.getNextNode()!=null){
+                links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
+                tmp2=tmp2.getNextNode();
+            }
+           links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
+            palabras.add(((palabra)tmp.getData()).getName());        
+            cfkw.generate("indice2", key,links,palabras);
+            System.out.println(tmp.getData());
+            tmp=tmp.getNextNode();
+        }
+        key.add(" ");
+        while (tmp2.getNextNode()!=null){
+            links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
+            tmp2=tmp2.getNextNode();
+        }
+        links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
+        palabras.add(((palabra)tmp.getData()).getName());
+        cfkw.generate("indice2", key,links,palabras);
+    
+        
+    }*/
         
     }
 }
