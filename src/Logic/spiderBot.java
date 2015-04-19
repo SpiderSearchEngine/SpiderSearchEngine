@@ -68,7 +68,7 @@ public class spiderBot {
         
         
         url URL = ((url)(cola.dequeue().getData()));
-        if (URL.getNumAsoc()<3){
+        if (URL.getNumAsoc()<1){
         if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
             
             node tmp=cl.getHead();
@@ -82,7 +82,7 @@ public class spiderBot {
         
         while (pilaUrl.top()!=null)
             cola.enqueue((url)pilaUrl.pop().getData());
-        cl.insertHead(new urlProcesado(URL.getDireccion(), 0));
+        cl.insertHead(new urlProcesado(URL.getDireccion(), 0, 1000));
         pilaTexto=ft.eliminarLinks(((urlProcesado)cl.getHead().getData()).getDireccion());
                 
         while(pilaTexto.top()!=null){

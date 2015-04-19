@@ -13,10 +13,12 @@ package Logic;
 public class urlProcesado {
     private int _referencia;
     private String _direccion;
+    private int _trustworthy;
     
-    public urlProcesado (String direccion, int referencia){
+    public urlProcesado (String direccion, int referencia, int trustworthy){
         this._referencia=referencia;
         this._direccion=direccion;
+        this._trustworthy=trustworthy;
     }
     public void setReferencia (int numAsoc){
         this._referencia=numAsoc;
@@ -38,6 +40,20 @@ public class urlProcesado {
      */
     public String getDireccion (){
         return _direccion;
+    }
+
+    /**
+     * @return the _trustworthy
+     */
+    public int getTrustworthy() {
+        return _trustworthy;
+    }
+
+    /**
+     * @param _trustworthy the _trustworthy to set
+     */
+    public void setTrustworthy(int _trustworthy) {
+        this._trustworthy = _trustworthy;
     }
     
 }

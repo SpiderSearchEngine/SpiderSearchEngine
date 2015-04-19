@@ -91,7 +91,7 @@ public class Buscador extends javax.swing.JFrame {
         PanelFondo.add(BotonBuscar);
         BotonBuscar.setBounds(570, 220, 90, 24);
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graficos/hola.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/hola.png"))); // NOI18N
         Fondo.setText("jLabel1");
         Fondo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,7 +132,7 @@ public class Buscador extends javax.swing.JFrame {
         TxtBuscador.setLocation(160, 40);
         BotonBuscar.setLocation(590,43);
         Fondo.setBounds(0,0,700, 100);
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graficos/ger.png")));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/ger.png")));
         PanelFondo.setBackground(Color.darkGray);
         
         jPanel1.setBackground(Color.DARK_GRAY);

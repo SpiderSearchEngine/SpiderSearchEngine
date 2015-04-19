@@ -50,6 +50,6 @@ public class obtimizador {
             
         }
         _cl.insertHead(new paginas(((urlProcesado)(tmp.getData())).getDireccion(),((urlProcesado)(tmp.getData())).getReferencia(),1000));
-        setL(l);
+        
     }
 }

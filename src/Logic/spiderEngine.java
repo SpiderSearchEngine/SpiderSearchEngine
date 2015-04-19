@@ -15,15 +15,15 @@ public class spiderEngine {
     private list l = new list(null,null);
     private queueList topBusqueda = new queueList(null, null);
     private queueList busquedasRecientes = new queueList(null, null);
+    private list toL= new list(null,null);
+    //usuario u = new usuario();
+    
     
     public spiderEngine(circularList url, list keywords){
         this.cl=url;
         this.l=keywords;
     }
     
-    public void buscar(){
-        
-    }
     
     
 }
