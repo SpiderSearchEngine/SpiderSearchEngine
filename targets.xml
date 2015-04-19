@@ -5,9 +5,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<targets>   
+<targets>
+    <URL>http://es.wikipedia.org/wiki/Mundo</URL>   
     <URL>http://www.oracle.com</URL>
-    <URL>http://es.wikipedia.org/wiki/Deportivo_Saprissa</URL>
     <URL>http://www.nacion.com</URL>
     <URL>http://www.stackoverflow.com/</URL>
     <URL>http://www.inci.gov.co</URL> 

@@ -10,7 +10,7 @@ public class paginas extends url{
     private int _trustworthy;
     /**
      * Constructor de la clase
-     * @param NumAsoc
+     * @param numReferencia
      * @param direccion
      * @param trustworthy 
      */

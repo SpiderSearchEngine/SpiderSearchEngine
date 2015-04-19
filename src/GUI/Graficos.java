@@ -9,7 +9,7 @@ import org.omg.CORBA.BAD_CONTEXT;
 
 /**
  *
- * @author estadm
+ * @author Gerald M, Jairo O
  */
 public class Graficos {
 

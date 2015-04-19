@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author estadm
+ * @author Gerald M, Jairo O
  */
 public class Buscador extends javax.swing.JFrame {
 

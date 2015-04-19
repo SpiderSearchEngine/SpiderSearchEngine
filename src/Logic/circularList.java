@@ -147,5 +147,5 @@ public class circularList <G>{
             tmp=tmp.getNextNode();
         }
         System.out.println("pos= "+(i++)+" dato = "+tmp.getData());
-    }
+    }   
 }

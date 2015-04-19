@@ -16,6 +16,7 @@ public class spiderBot {
     private list l = new list(null, null);
     private circularList cl = new circularList(null);
     private boolean permiso = false;
+    private boolean parar = true;
     private String _url; 
     private int _maxthreads;
     private int _maxprofundidad;
@@ -65,14 +66,18 @@ public class spiderBot {
         procesarURLS procUrl = new procesarURLS(); 
         formatoTexto ft = new formatoTexto();
         
+        
         url URL = ((url)(cola.dequeue().getData()));
+        if (URL.getNumAsoc()<3){
         if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
+            
             node tmp=cl.getHead();
             while(!((urlProcesado)(tmp.getData())).getDireccion().equals(URL.getDireccion()))
                 tmp=tmp.getNextNode();
             ((urlProcesado)(tmp.getData())).setReferencia(((urlProcesado)(tmp.getData())).getReferencia()+1);
         }
         else{
+            
         pilaUrl=procUrl.procesar(URL);
         
         while (pilaUrl.top()!=null)
@@ -103,9 +108,18 @@ public class spiderBot {
             }
         }
         }
+        System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
         permiso=true;
         notify();
+        }
+        else{
+        System.out.println("entre");
+        parar=false;
+        permiso=true;
+        notify();}
     }
+        
+        
     public void generarIndice() throws Exception{        
         hacerXmlIndice1(cl);
         hacerXmlIndice2(l);
@@ -164,5 +178,8 @@ public class spiderBot {
         links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
         palabras.add(((palabra)tmp.getData()).getName());
         cfkw.generate("indice2", key,links,palabras);
+    }
+    public boolean getParar(){
+        return this.parar;
     }
 }
