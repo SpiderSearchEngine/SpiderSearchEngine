@@ -1,6 +1,7 @@
 package Logic;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
@@ -105,20 +106,21 @@ public class spiderBot {
         permiso=true;
         notify();
     }
-    public void generarIndice(){
-        /**
-        
-    public void hacerXmlIndice1(circularList cirList) throws Exception{
-        cirList.print();
+    public void generarIndice() throws Exception{        
+        hacerXmlIndice1(cl);
+        hacerXmlIndice2(l);
+    }
+    
+    private void hacerXmlIndice1(circularList urlList) throws Exception{
         createXmlForUrlProcess cfup=new createXmlForUrlProcess();
-        node tmp= cirList.getHead();
+        node tmp= urlList.getHead();
         ArrayList key = new ArrayList();
         ArrayList Url = new ArrayList();
         ArrayList UrlsProcesadas = new ArrayList();
         key.add("w");
         Url.add("w");
         UrlsProcesadas.add(tmp.getData());
-        while (tmp.getNextNode()!=cirList.getHead()){
+        while (tmp.getNextNode()!=urlList.getHead()){
             key.add(" ");
             Url.add(" ");
             UrlsProcesadas.add(tmp.getData());
@@ -126,7 +128,7 @@ public class spiderBot {
             System.out.println(tmp.getData());
             tmp=tmp.getNextNode();
             tmp=tmp.getNextNode();
-            if (tmp.getNextNode()==cirList.getHead()){
+            if (tmp.getNextNode()==urlList.getHead()){
                 key.add(" ");
                 Url.add(" ");
                 UrlsProcesadas.add(tmp.getData());
@@ -135,18 +137,13 @@ public class spiderBot {
         }
         cfup.generate("indice1", key,Url,UrlsProcesadas);
     }
-    public void hacerXmlIndice2(list doubleList) throws Exception{
-        doubleList.print();
-        System.out.println("Ya se metio donde yo queria: ");
+    private void hacerXmlIndice2(list KeywordList) throws Exception{
         createXmlForKeywords cfkw=new createXmlForKeywords();
-        node tmp= doubleList.getHead();
-        nodeKey tmp2= ((palabra)(doubleList.getHead().getData())).getListaReferencia().getHead();
+        node tmp= KeywordList.getHead();
+        nodeKey tmp2= ((palabra)(KeywordList.getHead().getData())).getListaReferencia().getHead();
         ArrayList key = new ArrayList();
         ArrayList links = new ArrayList();
         ArrayList palabras = new ArrayList();
-        //key.add(" ");
-        //links.add(" ");
-        //palabras.add(((palabra)tmp.getData()).getName());
         while (tmp.getNextNode()!=null){
             key.add(" ");
             while (tmp2.getNextNode()!=null){
@@ -167,9 +164,5 @@ public class spiderBot {
         links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
         palabras.add(((palabra)tmp.getData()).getName());
         cfkw.generate("indice2", key,links,palabras);
-    
-        
-    }*/
-        
     }
 }

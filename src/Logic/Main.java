@@ -19,7 +19,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main (String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
+    public static void main (String[] args)  throws ParserConfigurationException, FileNotFoundException, SAXException, IOException, InterruptedException {
         spiderBot sb = new spiderBot();
         productor p = new productor (sb, "targets.xml",1, 0);
         consumidor c1 = new consumidor(sb);
@@ -42,7 +42,6 @@ public class Main {
         consumidor c18 = new consumidor(sb);
         consumidor c19 = new consumidor(sb);
         consumidor c20 = new consumidor(sb);
-        
         p.start();
         c1.start();
         c2.start();
@@ -86,6 +85,7 @@ public class Main {
             c18.run();
             c19.run();
             c20.run();
+            
         }
     }
 }
