@@ -2,6 +2,7 @@ package Logic;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
@@ -68,7 +69,7 @@ public class spiderBot {
         
         
         url URL = ((url)(cola.dequeue().getData()));
-        if (URL.getNumAsoc()<2){
+        if (URL.getNumAsoc()<1){
         if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
             
             node tmp=cl.getHead();
@@ -109,8 +110,8 @@ public class spiderBot {
             }
         }
         }
-        cola.print();
-        System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
+        //cola.print();
+        //System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
         permiso=true;
         notify();
         }
@@ -123,7 +124,7 @@ public class spiderBot {
         
     public void generarIndice() throws Exception{        
         hacerXmlIndice1(cl);
-        hacerXmlIndice2(l);
+        //hacerXmlIndice2(l);
     }
     
     private void hacerXmlIndice1(circularList urlList) throws Exception{
@@ -132,25 +133,29 @@ public class spiderBot {
         ArrayList key = new ArrayList();
         ArrayList Url = new ArrayList();
         ArrayList UrlsProcesadas = new ArrayList();
-        key.add("w");
-        Url.add("w");
-        UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
-        while (tmp.getNextNode()!=urlList.getHead()){
+        if (urlList.getHead()==null)
+            return;
+        else if (urlList.getHead()==urlList.getHead().getNextNode()){
             key.add(" ");
             Url.add(" ");
             UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
             cfup.generate("indice1", key,Url,UrlsProcesadas);
-            System.out.println(tmp.getData());
-            tmp=tmp.getNextNode();
-            tmp=tmp.getNextNode();
-            if (tmp.getNextNode()==urlList.getHead()){
+        }
+        else{
+            while (tmp.getNextNode()!=urlList.getHead()){
                 key.add(" ");
                 Url.add(" ");
                 UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
                 cfup.generate("indice1", key,Url,UrlsProcesadas);
+                System.out.println(((urlProcesado)tmp.getData()).getDireccion());
+                tmp=tmp.getNextNode();
             }
+            key.add(" ");
+            Url.add(" ");
+            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
+            cfup.generate("indice1", key,Url,UrlsProcesadas);
+            System.out.println(((urlProcesado)tmp.getData()).getDireccion());
         }
-        cfup.generate("indice1", key,Url,UrlsProcesadas);
     }
     private void hacerXmlIndice2(list KeywordList) throws Exception{
         createXmlForKeywords cfkw=new createXmlForKeywords();
