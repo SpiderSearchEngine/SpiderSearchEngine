@@ -138,20 +138,20 @@ public class spiderBot {
         else if (urlList.getHead()==urlList.getHead().getNextNode()){
             key.add(" ");
             Url.add(" ");
-            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
+            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
             cfup.generate("indice1", key,Url,UrlsProcesadas);
         }
         else{
             while (tmp.getNextNode()!=urlList.getHead()){
                 key.add(" ");
                 Url.add(" ");
-                UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
+                UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
                 cfup.generate("indice1", key,Url,UrlsProcesadas);
                 tmp=tmp.getNextNode();
             }
             key.add(" ");
             Url.add(" ");
-            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
+            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
             cfup.generate("indice1", key,Url,UrlsProcesadas);
         }
     }
