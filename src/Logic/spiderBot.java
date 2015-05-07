@@ -38,7 +38,7 @@ public class spiderBot {
             }
         }
         leerxml lxml =new leerxml();
-        for (int i=indice; i<=19; i+=2){
+        for (int i=indice; i<=3; i+=2){
             cola.enqueue(new url (lxml.leer(url, i), numAsoc));
         }
         permiso=true;
@@ -67,58 +67,58 @@ public class spiderBot {
         procesarURLS procUrl = new procesarURLS(); 
         formatoTexto ft = new formatoTexto();
         
-        
         url URL = ((url)(cola.dequeue().getData()));
         if (URL.getNumAsoc()<1){
-        if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
-            
-            node tmp=cl.getHead();
-            while(!((urlProcesado)(tmp.getData())).getDireccion().equals(URL.getDireccion()))
-                tmp=tmp.getNextNode();
-            ((urlProcesado)(tmp.getData())).setReferencia(((urlProcesado)(tmp.getData())).getReferencia()+1);
-        }
-        
-        else{
-            
-        pilaUrl=procUrl.procesar(URL);
-        
-        while (pilaUrl.top()!=null)
-            cola.enqueue((url)pilaUrl.pop().getData());
-        cl.insertHead(new urlProcesado(URL.getDireccion(), 0, 1000));
-        pilaTexto=ft.eliminarLinks(((urlProcesado)cl.getHead().getData()).getDireccion());
-                
-        while(pilaTexto.top()!=null){
-            if (l.findSpecial((String)pilaTexto.top().getData())==false){
-                l.insertHead(new palabra ((String)pilaTexto.pop().getData(), lk));
-                ((palabra)l.getHead().getData()).insertar(cl.getHead());
-                ((palabra)(l.getHead().getData())).getListaReferencia().getHead().setNumNode(new node(0, null, null));
+            if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
+                node tmp=cl.getHead();
+                while(!((urlProcesado)(tmp.getData())).getDireccion().equals(URL.getDireccion()))
+                    tmp=tmp.getNextNode();
+                ((urlProcesado)(tmp.getData())).setReferencia(((urlProcesado)(tmp.getData())).getReferencia()+1);
             }
             else{
-                node tmp= l.getHead();
-                while(((palabra)tmp.getData()).getName()!=(String)pilaTexto.top().getData())
-                    tmp=tmp.getNextNode();
-                if (((palabra)tmp.getData()).getListaReferencia().find(((urlProcesado)(cl.getHead().getData())).getDireccion())==true){
-                    nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
-                    while (tmp2.getData()!=((urlProcesado)(cl.getHead().getData())).getDireccion())
-                        tmp2=tmp2.getNextNode();
-                    tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
-                }
-                else{
-                    ((palabra)(tmp.getData())).getListaReferencia().insertHead(((urlProcesado)(cl.getHead().getData())).getDireccion());
-                    ((palabra)(tmp.getData())).getListaReferencia().getHead().setNumNode(new node(0, null, null));
+                pilaUrl=procUrl.procesar(URL);
+        
+                while (pilaUrl.top()!=null)
+                    cola.enqueue((url)pilaUrl.pop().getData());
+                cl.insertHead(new urlProcesado(URL.getDireccion(), 0));
+                pilaTexto=ft.eliminarLinks(((urlProcesado)cl.getHead().getData()).getDireccion());
+                
+                while(pilaTexto.top()!=null){
+                    System.out.println(pilaTexto.top().getData());
+                    if (l.findSpecial((String)pilaTexto.top().getData())==false){
+                        l.insertHead(new palabra ((String)pilaTexto.pop().getData(), lk));
+                        ((palabra)l.getHead().getData()).insertar(cl.getHead());
+                        ((palabra)(l.getHead().getData())).getListaReferencia().getHead()
+                                .setNumNode(new node(0, null, null));
+                    }
+                    else{
+                        System.out.println("Entre");
+                        node tmp= l.getHead();
+                        while(((palabra)tmp.getData()).getName()!=(String)pilaTexto.top().getData())
+                            tmp=tmp.getNextNode();
+                        if (((palabra)tmp.getData()).getListaReferencia().find(((urlProcesado)(cl.getHead().getData())).getDireccion())==true){
+                            nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
+                            while (tmp2.getData()!=((urlProcesado)(cl.getHead().getData())).getDireccion())
+                                tmp2=tmp2.getNextNode();
+                            tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
+                        }
+                        else{
+                            ((palabra)(tmp.getData())).getListaReferencia().insertHead(((urlProcesado)(cl.getHead().getData())).getDireccion());
+                            ((palabra)(tmp.getData())).getListaReferencia().getHead().setNumNode(new node(0, null, null));
+                        }
+                    }
                 }
             }
-        }
-        }
-        //cola.print();
-        //System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
-        permiso=true;
-        notify();
+            //cola.print();
+            //System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
+            permiso=true;
+            notify();
         }
         else{
-        parar=false;
-        permiso=true;
-        notify();}
+            parar=false;
+            permiso=true;
+            notify();
+        }
     }
         
         
@@ -147,16 +147,15 @@ public class spiderBot {
                 Url.add(" ");
                 UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
                 cfup.generate("indice1", key,Url,UrlsProcesadas);
-                System.out.println(((urlProcesado)tmp.getData()).getDireccion());
                 tmp=tmp.getNextNode();
             }
             key.add(" ");
             Url.add(" ");
             UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion())));
             cfup.generate("indice1", key,Url,UrlsProcesadas);
-            System.out.println(((urlProcesado)tmp.getData()).getDireccion());
         }
     }
+    
     private void hacerXmlIndice2(list KeywordList) throws Exception{
         createXmlForKeywords cfkw=new createXmlForKeywords();
         node tmp= KeywordList.getHead();
@@ -173,7 +172,7 @@ public class spiderBot {
            links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
             palabras.add(((palabra)tmp.getData()).getName());        
             cfkw.generate("indice2", key,links,palabras);
-            System.out.println(tmp.getData());
+            //System.out.println(tmp.getData());
             tmp=tmp.getNextNode();
         }
         key.add(" ");
@@ -185,6 +184,7 @@ public class spiderBot {
         palabras.add(((palabra)tmp.getData()).getName());
         cfkw.generate("indice2", key,links,palabras);
     }
+    
     public boolean getParar(){
         return this.parar;
     }

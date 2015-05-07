@@ -126,7 +126,7 @@ public class circularList <G>{
         boolean condition = false;
         while(tmp.getNextNode()!=_head){
             if (!((urlProcesado)(tmp.getData())).getDireccion().equals((String)pData))
-                tmp=tmp.getNextNode();
+                tmp=tmp.getNextNode() ;
             else{
                 condition=true;
                 break;

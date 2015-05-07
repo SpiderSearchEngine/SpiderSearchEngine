@@ -32,13 +32,14 @@ public class tokenizer <G>{
         stackList sl = new stackList (null);
         StringTokenizer st = new StringTokenizer(dato);
         while (st.hasMoreTokens()) {
-            dato = st.nextToken();
-            if (dato.length()>=3 && (dato!="que" || dato!="ante" || dato!="bajo"
-                    || dato!="cabe" || dato!="con" || dato!="contra" ||dato!="desde"
-                    || dato!="entre" || dato!="hacia" || dato!="hasta" || dato!="para"
-                    || dato!="por" || dato!="según" || dato!="sin" || dato!="sobre"
-                    || dato!="tras"))
-                sl.push((String)dato);
+            dato = (String)st.nextToken();
+            if (dato.length()>=3 && dato!="que" && dato!="ante" && dato!="bajo"
+                    && dato!="cabe" && dato!="con" && dato!="contra" &&dato!="desde"
+                    && dato!="entre" && dato!="hacia" && dato!="hasta" && dato!="para"
+                    && dato!="por" && dato!="según" && dato!="sin" && dato!="sobre"
+                    && dato!="tras" && dato!="las"  && dato!="los"){
+                sl.push(dato);
+            }
         }
         return sl;
     }
