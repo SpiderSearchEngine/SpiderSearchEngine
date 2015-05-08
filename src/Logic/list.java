@@ -166,8 +166,8 @@ public class list <G>{
         node tmp = _head;
         boolean condition = false;
         while(tmp!=null){
-            if (((palabra)tmp.getData()).getName()!=((String)pData))
-                tmp=tmp.getNextNode();
+            if (!(((String)((palabra)tmp.getData()).getName()).equals((String)pData)))
+                tmp=tmp.getNextNode();            
             else{
                 condition=true;
                 break;

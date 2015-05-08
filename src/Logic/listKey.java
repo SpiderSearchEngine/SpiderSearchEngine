@@ -130,7 +130,7 @@ public class listKey <G>{
         nodeKey tmp = _head;
         boolean condition = false;
         while(tmp!=null){
-            if (((String)tmp.getData())!=(String)pData)
+            if (((urlProcesado)((node)tmp.getData()).getData()).getDireccion().compareTo((String)pData)!=0)
                 tmp=tmp.getNextNode();
             else{
                 condition=true;
