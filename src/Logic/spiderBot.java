@@ -107,24 +107,29 @@ public class spiderBot {
             ((palabra)l.getHead().getData()).insertar(cl.getHead());
             ((palabra)(l.getHead().getData())).getListaReferencia().getHead()
                     .setNumNode(new node(0, null, null));
+            System.out.println(((palabra)l.getHead().getData()).getName());
+            System.out.println(((node)(((palabra)l.getHead().getData()).getListaReferencia()).getHead().getData()));
+            System.out.println(((palabra)(l.getHead().getData())).getListaReferencia().getHead().getNumNode().getData());
         }
         else{
             node tmp= l.getHead();
             while(((palabra)tmp.getData()).getName().compareTo(pal)!=0)
                 tmp=tmp.getNextNode();
+            nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
             if (((palabra)tmp.getData()).getListaReferencia().find(((urlProcesado)(cl.getHead().getData())).getDireccion())==true){
-                nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
-                System.out.println("***"+tmp2.getNumNode().getData());
                 while ((((urlProcesado)((node)tmp2.getData()).getData()).getDireccion()).compareTo(((urlProcesado)(cl.getHead().getData())).getDireccion())!=0)
                     tmp2=tmp2.getNextNode();
-                System.out.println(tmp2.getNumNode().getData());
                 tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
+                /*System.out.println(((palabra)l.getHead().getData()).getName());
+                System.out.println(tmp2.getData());
+                System.out.println(tmp2.getNumNode().getData());*/
             }
             else{
                 ((palabra)tmp.getData()).insertar(cl.getHead());
                 ((palabra)(tmp.getData())).getListaReferencia().getHead()
                     .setNumNode(new node(0, null, null));
             }
+            
         }
     }
     
