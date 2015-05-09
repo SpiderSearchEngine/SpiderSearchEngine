@@ -1,54 +1,50 @@
-                 package Logic;
+
+package Logic;
 
 /**
- * Clase para la lista de keywords
- * @author Gerald M, Jairo O
+ * Clase para los objetos de las palabras
+ * @author Gerald M, Jairo O.
  */
 public class palabra <G>{
     
     private String name;
     private listKey listaReferencia;
-    private node url;
+    
     /**
      * Constructor de la clase
-     * @param palabra
-     * @param URL 
+     * @param ppalabra, palabra
+     * @param plistaReferencias, lista con los urls que la incluyen. 
      */
-    public palabra(String palabra, listKey lista){
-       this.name=palabra;
-       this.listaReferencia=lista;
+    public palabra(String ppalabra, listKey plistaReferencias){
+       this.name=ppalabra;
+       this.listaReferencia=plistaReferencias;
     }
     /**
-     * Metodo para modificar nombre
-     * @param palabra 
+     * Metodo para modificar nombre de la palabra.
+     * @param ppalabra, palabra que se quiere modificar
      */
-    public void setname(String palabra){
-        this.name=palabra;
+    public void setname(String ppalabra){
+        this.name=ppalabra;
     }
     /**
-     * Funcion para la obtencion de nombre
-     * @return 
+     * Metodo para obtener la palabra
+     * @return nombre de la palabra.
      */
     public String getName(){
         return name;
     }
     /**
-     * Funcion para la obtencion de url
-     * @return node url
-     */
-    public node getUrl(){
-        return url;
-    }
-    /**
-     * Funcion para la obtencion de la lista
-     * @return listaReferencia
+     * Metodo para la obtencion de la lista de referencias.
+     * @return lista con los links que contienen la palabra
      */
     public listKey getListaReferencia(){
         return listaReferencia;
     }
-    
-    public void insertar (node URL){
-        listaReferencia.insertHead(URL);
+    /**
+     * Metodo para insertar un url relacionado con la palabra.
+     * @param purl, url a insertar
+     */
+    public void insertar (node purl){
+        listaReferencia.insertHead(purl);
     }
-    
 }

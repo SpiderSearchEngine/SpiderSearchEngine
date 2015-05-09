@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Logic;
 
@@ -11,20 +6,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author jairo
+ * Clase del hilo consumidor
+ * @author Gerald M, Jairo O.
  */
 public class consumidor extends Thread{
-    private spiderBot _sb;
+    private spiderBot _spiderBot;
     
-    
-    public consumidor(spiderBot sp){
-        this._sb=sp;
+    /**
+     * Constructor de la clase
+     * @param pspiderBot, elemento que se utilizara 
+     */
+    public consumidor(spiderBot pspiderBot){
+        this._spiderBot=pspiderBot;
     }
-    
+    /**
+     * Metodo para correr el hilo
+     */
     public void run (){
         try {
-            _sb.obtenerDatos();
+            _spiderBot.obtenerDatos();
         } catch (IOException ex) {
             Logger.getLogger(consumidor.class.getName()).log(Level.SEVERE, null, ex);
         }

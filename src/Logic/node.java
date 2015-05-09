@@ -3,7 +3,7 @@ package Logic;
 
 /**
  * Clase para crear los nodos.
- * @author Jairo O, Gerald M.
+ * @author Gerald M, Jairo O.
  */
 public class node <G>{
     private G _pdata;

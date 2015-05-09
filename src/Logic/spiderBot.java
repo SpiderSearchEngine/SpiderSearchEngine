@@ -1,3 +1,4 @@
+
 package Logic;
 
 import java.io.IOException;
@@ -28,7 +29,15 @@ public class spiderBot {
      */
     public spiderBot(){
     }
-    
+    /**
+     * Metodo para generar las colas
+     * @param url, direccion del xml de url
+     * @param indice, numero de indice para el documento
+     * @param numAsoc numero de recursividad
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException 
+     */
     public synchronized void generarCola (String url, int indice, int numAsoc) throws ParserConfigurationException, SAXException, IOException{
         while(permiso==true){
             try{
@@ -45,11 +54,7 @@ public class spiderBot {
         notify();
     }
     /**
-     * Metodo para obtener los datos de un xml, en este caso,el de "targets".
-     * @param url. Direccion del xml.
-     * @param indice. Numero asociado a la pagina.
-     * @throws ParserConfigurationException
-     * @throws SAXException
+     * Metodo para obtener todos los datos del url
      * @throws IOException 
      */
     public synchronized void obtenerDatos() throws IOException{
@@ -84,7 +89,7 @@ public class spiderBot {
                 while(pilaTexto.top()!=null){
                     String var=(String)pilaTexto.top().getData();
                     pilaTexto.pop();
-                    aux(var);
+                    procesarPalabras(var);
                 }
             }
             permiso=true;
@@ -97,7 +102,7 @@ public class spiderBot {
         }
     }
         
-    private void aux(String pal){
+    private void procesarPalabras(String pal){
         if (l.findSpecial(pal)==false){
             l.insertHead(new palabra (pal, new listKey(null, null)));
             ((palabra)l.getHead().getData()).insertar(cl.getHead());
@@ -123,12 +128,19 @@ public class spiderBot {
             
         }
     }
-    
+    /**
+     * Metodo para generar los indices
+     * @throws Exception 
+     */
     public void generarIndice() throws Exception{
-        //hacerXmlIndice1(cl);
+        hacerXmlIndice1(cl);
         hacerXmlIndice2(l);
     }
-    
+    /**
+     * Metodo para generar el indice1 (urls procesados)
+     * @param urlList, lista circulas de urls
+     * @throws Exception 
+     */
     private void hacerXmlIndice1(circularList urlList) throws Exception{
         createXmlForUrlProcess cfup=new createXmlForUrlProcess();
         node tmp= urlList.getHead();
@@ -149,7 +161,11 @@ public class spiderBot {
             
         }
     }
-    
+    /**
+     * Metodo para generar el indice2 (keywords procesados)
+     * @param KeywordList, lista doble de keywords procesados
+     * @throws Exception 
+     */
     private void hacerXmlIndice2(list KeywordList) throws Exception{
         createXmlForKeywords cfkw=new createXmlForKeywords();
         node tmp= KeywordList.getHead();
@@ -170,7 +186,10 @@ public class spiderBot {
                 tmp4=((palabra)tmp3.getData()).getListaReferencia().getHead();
         }
     }
-    
+    /**
+     * Metodo obtener la condicion de entrafa
+     * @return condicion de entrada
+     */
     public boolean getParar(){
         return this.parar;
     }

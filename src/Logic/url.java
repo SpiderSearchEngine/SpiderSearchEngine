@@ -1,45 +1,46 @@
+
 package Logic;
 
 /**
  * Clase del objeto url
- * @author Gerald M, Jairo O
+ * @author Gerald M, Jairo O.
  */
 public class url {
     
-    private int _NumAsoc;
+    private int _numAsoc;
     private String _direccion;
     /**
      * Constructor de la clase
-     * @param NumAsoc
-     * @param direccion 
+     * @param pnumAsoc, grado de recursividad
+     * @param pdireccion, url a procesar
      */
-    public url (String direccion, int NumAsoc){
-        this._NumAsoc=NumAsoc;
-        this._direccion=direccion;
+    public url (String pdireccion, int pnumAsoc){
+        this._numAsoc=pnumAsoc;
+        this._direccion=pdireccion;
     }/**
-     * Metodo para cambiar el numero asociado
-     * @param numAsoc 
+     * Metodo para modificar el numero asociado
+     * @param pnumAsoc 
      */
-    public void setNumAsoc (int numAsoc){
-        this._NumAsoc=numAsoc;
+    public void setNumAsoc (int pnumAsoc){
+        this._numAsoc=pnumAsoc;
     }
     /**
      * Funcion para obtener el numero asociado
-     * @return 
+     * @return _numAsoc, el nivel de recursividad
      */
     public int getNumAsoc(){
-        return _NumAsoc;
+        return _numAsoc;
     }
     /**
-     * Metodo para cambiar la direccion
-     * @param direccion 
+     * Metodo para modificar la direccion
+     * @param pdireccion 
      */
-    public void setDireccion (String direccion){
-        this._direccion=direccion;
+    public void setDireccion (String pdireccion){
+        this._direccion=pdireccion;
     }
     /**
-     * Funcion para obtener direccion
-     * @return 
+     * Metodo para obtener la url
+     * @return url
      */
     public String getDireccion (){
         return _direccion;

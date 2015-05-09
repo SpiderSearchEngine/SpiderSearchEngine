@@ -1,74 +1,84 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+
 package Logic;
+
 /**
-*
-* @author gerald
+* Clase para la lista de referencias de las palabras.
+* @author Gerald M, Jairo O.
 */
 public class nodeKey <G> {
     
-    private G pdata;
+    private G _data;
     private nodeKey _next;
     private nodeKey _prev;
     private node _num;
     
-    
-    public nodeKey(G pdata, nodeKey next,nodeKey prev, node num){
-    this.pdata=pdata;
-    this._next=next;
-    this._prev=prev;
-    this._num=num;
+    /**
+     * Constructor de la clase
+     * @param pdata, dato de la lista
+     * @param pnext, siguiente nodo
+     * @param pprev, anterior nodo
+     * @param pnum, nodo con el numero de veces que aparece la palabra en la url
+     */
+    public nodeKey(G pdata, nodeKey pnext, nodeKey pprev, node pnum){
+        this._data=pdata;
+        this._next=pnext;
+        this._prev=pprev;
+        this._num=pnum;
     }
     /**
-    *
-    * @param _num
+    * Metodo para modificar el nodo que contiene las veces que aparece la palabra
+    * @param _num, numero de veces que aparece la palabra
     */
-public void setNumNode(node _num){
-    this._num=_num;
-}
-/**
-* @return the _num
-*/
-public node getNumNode() {
-    return _num;
-}
-/**
-* @return the pdata
-*/
-public G getData() {
-    return pdata;
+    public void setNumNode(node _num){
+        this._num=_num;
     }
-/**
-* @param pdata the pdata to set
-*/
-public void setData(G pdata) {
-    this.pdata = pdata;
+    /**
+     * Metodo para obtener  el nodo con el numero de veces que aparece la palabra
+     * @return numero de veces que aparece la palabra
+     */
+    public node getNumNode() {
+        return _num;
     }
-/**
-* @return the _next
-*/
-public nodeKey getNextNode() {
-    return _next;
+    /**
+     * Metodo para obtener el dato
+     * @return el dato
+     */
+    public G getData() {
+        return _data;
     }
-/**
-* @param _next the _next to set
-*/
-public void setNextNode(nodeKey _next) {
-    this._next = _next;
+    /**
+     * Metodo para modificar el dato
+     * @param pdata
+     */
+    public void setData(G pdata) {
+        this._data = pdata;
     }
-/**
-* @return the _prev
-*/
-public nodeKey getPrevNode() {
-    return _prev;
+    /**
+     * Metodo para obtener el siguiente nodo
+     * @return siguiente nodo
+     */
+    public nodeKey getNextNode() {
+        return _next;
     }
-/**
-* @param _prev the _prev to set
-*/
-public void setPrevNode(nodeKey _prev) {
-    this._prev = _prev;
+    /**
+     * Metodo para modificar el siguiente nodo
+     * @param pnext, siguiente nodo
+     */
+    public void setNextNode(nodeKey pnext) {
+        this._next = pnext;
+    }
+    /**
+     * Metodo para obtener el anterior nodo
+     * @return nodo anterior
+     */
+    public nodeKey getPrevNode() {
+        return _prev;
+    }
+    /**
+     * Metodo para modificar el anterior nodo
+     * @param pprev, anterior nodo
+     */
+    public void setPrevNode(nodeKey pprev) {
+        this._prev = pprev;
     }
 }

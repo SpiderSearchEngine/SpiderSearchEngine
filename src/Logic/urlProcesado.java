@@ -1,40 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Logic;
 
 /**
- *
- * @author jairo
+ * Clase para tener los urls procesados
+ * @author Gerald M, Jairo O.
  */
 public class urlProcesado {
     private int _referencia;
     private String _direccion;
-    
-    public urlProcesado (String direccion, int referencia){
-        this._referencia=referencia;
-        this._direccion=direccion;
+    /**
+     * Constructor de la clase
+     * @param pdireccion, url procesada
+     * @param preferencia, veces que se ha procesado 
+     */
+    public urlProcesado (String pdireccion, int preferencia){
+        this._referencia=preferencia;
+        this._direccion=pdireccion;
     }
-    public void setReferencia (int numAsoc){
-        this._referencia=numAsoc;
+    /**
+     * Metodo para modificar el numero asociado a un url.
+     * @param pnumAsoc, numero de veces procesado el url.
+     */
+    public void setReferencia (int pnumAsoc){
+        this._referencia=pnumAsoc;
     }
-    
+    /**
+     * Metodo para obtener la referencia del url.
+     * @return _referencia
+     */
     public int getReferencia(){
         return _referencia;
     }
     /**
-     * Metodo para cambiar la direccion
-     * @param direccion 
+     * Metodo para modificar la direccion
+     * @param pdireccion 
      */
-    public void setDireccion (String direccion){
-        this._direccion=direccion;
+    public void setDireccion (String pdireccion){
+        this._direccion=pdireccion;
     }
     /**
-     * Funcion para obtener direccion
-     * @return 
+     * Metodo para obtener direccion url
+     * @return _direccion
      */
     public String getDireccion (){
         return _direccion;

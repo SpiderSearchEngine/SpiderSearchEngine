@@ -1,7 +1,8 @@
+
 package Logic;
 
 /**
- * Clase para manipular la cola.
+ * Clase para generar las colas de datos.
  * @author Gerald M, Jairo O.
  */
 public class queueList <G>{
@@ -12,9 +13,9 @@ public class queueList <G>{
      * @param head. Primer elemento de la cola.
      * @param tail. Ultimo elemento de la cola.
      */
-    public queueList (node head, node tail){
-        this._head=head;
-        this._tail=tail;
+    public queueList (node phead, node ptail){
+        this._head=phead;
+        this._tail=ptail;
     }
     /**
      * Metodo para encolar.
@@ -43,16 +44,11 @@ public class queueList <G>{
             return tmp;
         }
     }
+    /**
+     * Metodo que retorna el primer elemento.
+     * @return primer elemento de la cola
+     */
     public node getHead(){
         return this._head;
-    }
-    public void print (){
-        node tmp=_head;
-        int i=0;
-        while(tmp!=null){
-            i=i+1;
-            tmp=tmp.getNextNode();
-        }
-        System.out.println("links en cola: "+i);
     }
 }
