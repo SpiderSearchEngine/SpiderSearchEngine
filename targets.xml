@@ -7,6 +7,7 @@ and open the template in the editor.
 
 <targets>
     <URL>http://es.wikipedia.org/wiki/Mundo</URL>   
+    <URL>http://es.wikipedia.org/wiki/Mundo</URL>
     <URL>http://www.oracle.com</URL>
     <URL>http://www.nacion.com</URL>
     <URL>http://www.stackoverflow.com/</URL>

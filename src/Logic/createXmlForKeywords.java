@@ -29,9 +29,10 @@ public class createXmlForKeywords<G> {
     }
     
     
-    public static void generate(String name, ArrayList<String> key,ArrayList<String>links,ArrayList<String>palabras) throws Exception{
+    public void generate(String name, ArrayList<String> palabras,ArrayList<String>links) throws Exception{
+        //System.out.println("GERALD EL GOZADO");
  
-        if(key.isEmpty() ){
+        if(palabras.isEmpty() ){
             System.out.println("ERROR empty ArrayList");
             return;
         }else{
@@ -44,19 +45,24 @@ public class createXmlForKeywords<G> {
  
             //Main Node
             Element raiz = document.getDocumentElement();
-            //Por cada key creamos un item que contendrá la key y el value
+            //Por cada palabras creamos un item que contendrá la palabras y el value
             Element itemNode1 = document.createElement("KeyWords");
+            
 
             raiz.appendChild(itemNode1);
             //Element itemNode2 = document.createElement("UrlsProcesadas"); 
             //raiz.appendChild(itemNode2);
             
             
-            for(int i=0; i<key.size();i++){
+            for(int i=0; i<palabras.size();i++){
                 //Item Node
                 //Element itemNode1 = document.createElement("KeyWords"); 
                 
+                
+                Element itemNode2 = document.createElement("KeyWord");
+                
                 //Key Node
+                
                 Element palabraNode = document.createElement("Palabra"); 
                 Text palabraValue = document.createTextNode(palabras.get(i));
                 palabraNode.appendChild(palabraValue);  
@@ -69,9 +75,9 @@ public class createXmlForKeywords<G> {
                 /**
                  * 
                  */
-                
-                itemNode1.appendChild(palabraNode);
-                itemNode1.appendChild(linkNode);
+                itemNode1.appendChild(itemNode2);
+                itemNode2.appendChild(palabraNode);
+                itemNode2.appendChild(linkNode);
                 
                 
             }                

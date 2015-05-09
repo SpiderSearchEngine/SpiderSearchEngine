@@ -53,7 +53,7 @@ public class spiderBot {
      * @throws IOException 
      */
     public synchronized void obtenerDatos() throws IOException{
-        
+        int cont=0;
         while(permiso==false){
             try{
                 wait();
@@ -66,7 +66,6 @@ public class spiderBot {
         stackList pilaTexto = new stackList (null);        
         procesarURLS procUrl = new procesarURLS(); 
         formatoTexto ft = new formatoTexto();
-        
         url URL = ((url)(cola.dequeue().getData()));
         if (URL.getNumAsoc()<1){
             if (cl.getHead()!=null && cl.find((String)URL.getDireccion())==true){
@@ -82,6 +81,8 @@ public class spiderBot {
                     cola.enqueue((url)pilaUrl.pop().getData());
                 cl.insertHead(new urlProcesado(URL.getDireccion(), 0));
                 pilaTexto=ft.eliminarLinks(((urlProcesado)cl.getHead().getData()).getDireccion());
+                
+                //System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
                 
                 while(pilaTexto.top()!=null){
                     aux((String)pilaTexto.top().getData());
@@ -100,6 +101,7 @@ public class spiderBot {
     }
         
     private void aux(String pal){
+        
         if (l.findSpecial(pal)==false){
             l.insertHead(new palabra (pal, lk));
             ((palabra)l.getHead().getData()).insertar(cl.getHead());
@@ -112,8 +114,10 @@ public class spiderBot {
                 tmp=tmp.getNextNode();
             if (((palabra)tmp.getData()).getListaReferencia().find(((urlProcesado)(cl.getHead().getData())).getDireccion())==true){
                 nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
+                System.out.println("***"+tmp2.getNumNode().getData());
                 while ((((urlProcesado)((node)tmp2.getData()).getData()).getDireccion()).compareTo(((urlProcesado)(cl.getHead().getData())).getDireccion())!=0)
                     tmp2=tmp2.getNextNode();
+                System.out.println(tmp2.getNumNode().getData());
                 tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
             }
             else{
@@ -125,8 +129,8 @@ public class spiderBot {
     }
     
     public void generarIndice() throws Exception{
-        hacerXmlIndice1(cl);
-        //hacerXmlIndice2(l);
+        //hacerXmlIndice1(cl);
+        hacerXmlIndice2(l);
     }
     
     private void hacerXmlIndice1(circularList urlList) throws Exception{
@@ -137,24 +141,19 @@ public class spiderBot {
         ArrayList UrlsProcesadas = new ArrayList();
         if (urlList.getHead()==null)
             return;
-        else if (urlList.getHead()==urlList.getHead().getNextNode()){
-            key.add(" ");
-            Url.add(" ");
-            UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
-            cfup.generate("indice1", key,Url,UrlsProcesadas);
-        }
         else{
-            while (tmp.getNextNode()!=urlList.getHead()){
+            while(tmp.getNextNode()!=urlList.getHead()){
                 key.add(" ");
                 Url.add(" ");
                 UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
-                cfup.generate("indice1", key,Url,UrlsProcesadas);
+                cfup.generate("indice1", key,Url,UrlsProcesadas);                
                 tmp=tmp.getNextNode();
             }
             key.add(" ");
             Url.add(" ");
             UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
             cfup.generate("indice1", key,Url,UrlsProcesadas);
+            
         }
     }
     
@@ -163,29 +162,26 @@ public class spiderBot {
         createXmlForKeywords cfkw=new createXmlForKeywords();
         node tmp= KeywordList.getHead();
         nodeKey tmp2= ((palabra)(KeywordList.getHead().getData())).getListaReferencia().getHead();
-        ArrayList key = new ArrayList();
         ArrayList links = new ArrayList();
         ArrayList palabras = new ArrayList();
-        while (tmp.getNextNode()!=null){
-            key.add(" ");
-            while (tmp2.getNextNode()!=null){
-                links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+tmp2.getNumNode().getData());
-                tmp2=tmp2.getNextNode();
+        node tmp3=tmp;
+        nodeKey tmp4=tmp2;
+        while (tmp3!=null){
+            while (tmp4!=null){
+                //System.out.println("1");
+                palabras.add(" ");
+                links.add(" ");
+                palabras.add(((palabra)tmp3.getData()).getName()); 
+                links.add(((urlProcesado)(((node)(tmp4.getData())).getData())).getDireccion()+" , "+tmp4.getNumNode().getData());
+                cfkw.generate("indice2",palabras,links);
+                tmp4=tmp4.getNextNode();
             }
-           links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+tmp2.getNumNode().getData());
-            palabras.add(((palabra)tmp.getData()).getName());        
-            cfkw.generate("indice2", key,links,palabras);
-            //System.out.println(tmp.getData());
-            tmp=tmp.getNextNode();
+            //System.out.println("2");
+            tmp3=tmp3.getNextNode();
+            if(tmp3!=null)
+                tmp4=((palabra)tmp3.getData()).getListaReferencia().getHead();
         }
-        key.add(" ");
-        while (tmp2.getNextNode()!=null){
-            links.add(((urlProcesado)(((node)(tmp2.getData())).getData())).getDireccion()+" , "+((urlProcesado)(((node)(tmp2.getData())).getData())).getReferencia());
-            tmp2=tmp2.getNextNode();
-        }
-        links.add(((urlProcesado)(((node)(tmp.getData())).getData())).getDireccion()+" , "+tmp2.getNumNode().getData());
-        palabras.add(((palabra)tmp.getData()).getName());
-        cfkw.generate("indice2", key,links,palabras);
+        System.out.println("3");
     }
     
     public boolean getParar(){

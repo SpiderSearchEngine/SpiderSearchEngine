@@ -29,7 +29,7 @@ public class createXmlForUrlProcess<G> {
     }
     
     
-    public static void generate(String name, ArrayList<String> key,ArrayList<String> url,ArrayList<String>urlsProcesadas) throws Exception{
+    public void generate(String name, ArrayList<String> key,ArrayList<String> url,ArrayList<String>urlsProcesadas) throws Exception{
  
         if(key.isEmpty() ){
             System.out.println("ERROR empty ArrayList");
