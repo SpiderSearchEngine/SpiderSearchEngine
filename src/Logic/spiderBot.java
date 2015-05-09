@@ -76,18 +76,15 @@ public class spiderBot {
             }
             else{
                 pilaUrl=procUrl.procesar(URL);
-        
+                
                 while (pilaUrl.top()!=null)
                     cola.enqueue((url)pilaUrl.pop().getData());
                 cl.insertHead(new urlProcesado(URL.getDireccion(), 0));
                 pilaTexto=ft.eliminarLinks(((urlProcesado)cl.getHead().getData()).getDireccion());
-                
-                //System.out.println(((urlProcesado)cl.getHead().getData()).getDireccion());
-                
                 while(pilaTexto.top()!=null){
-                    aux((String)pilaTexto.top().getData());
+                    String var=(String)pilaTexto.top().getData();
                     pilaTexto.pop();
-                    
+                    aux(var);
                 }
             }
             permiso=true;
@@ -101,33 +98,27 @@ public class spiderBot {
     }
         
     private void aux(String pal){
-        
         if (l.findSpecial(pal)==false){
-            l.insertHead(new palabra (pal, lk));
+            l.insertHead(new palabra (pal, new listKey(null, null)));
             ((palabra)l.getHead().getData()).insertar(cl.getHead());
             ((palabra)(l.getHead().getData())).getListaReferencia().getHead()
-                    .setNumNode(new node(0, null, null));
-            System.out.println(((palabra)l.getHead().getData()).getName());
-            System.out.println(((node)(((palabra)l.getHead().getData()).getListaReferencia()).getHead().getData()));
-            System.out.println(((palabra)(l.getHead().getData())).getListaReferencia().getHead().getNumNode().getData());
+                    .setNumNode(new node(1, null, null));
         }
         else{
             node tmp= l.getHead();
             while(((palabra)tmp.getData()).getName().compareTo(pal)!=0)
                 tmp=tmp.getNextNode();
-            nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
             if (((palabra)tmp.getData()).getListaReferencia().find(((urlProcesado)(cl.getHead().getData())).getDireccion())==true){
-                while ((((urlProcesado)((node)tmp2.getData()).getData()).getDireccion()).compareTo(((urlProcesado)(cl.getHead().getData())).getDireccion())!=0)
+                nodeKey tmp2 = ((palabra)tmp.getData()).getListaReferencia().getHead();
+                while (((((urlProcesado)((node)tmp2.getData()).getData()).getDireccion()).compareTo(((urlProcesado)(cl.getHead().getData())).getDireccion()))!=0)
                     tmp2=tmp2.getNextNode();
                 tmp2.getNumNode().setData((Integer)tmp2.getNumNode().getData()+1);
-                /*System.out.println(((palabra)l.getHead().getData()).getName());
-                System.out.println(tmp2.getData());
-                System.out.println(tmp2.getNumNode().getData());*/
+                
             }
             else{
                 ((palabra)tmp.getData()).insertar(cl.getHead());
                 ((palabra)(tmp.getData())).getListaReferencia().getHead()
-                    .setNumNode(new node(0, null, null));
+                    .setNumNode(new node(1, null, null));
             }
             
         }
@@ -162,7 +153,6 @@ public class spiderBot {
         }
     }
     
-    
     private void hacerXmlIndice2(list KeywordList) throws Exception{
         createXmlForKeywords cfkw=new createXmlForKeywords();
         node tmp= KeywordList.getHead();
@@ -173,20 +163,15 @@ public class spiderBot {
         nodeKey tmp4=tmp2;
         while (tmp3!=null){
             while (tmp4!=null){
-                //System.out.println("1");
-                palabras.add(" ");
-                links.add(" ");
                 palabras.add(((palabra)tmp3.getData()).getName()); 
                 links.add(((urlProcesado)(((node)(tmp4.getData())).getData())).getDireccion()+" , "+tmp4.getNumNode().getData());
                 cfkw.generate("indice2",palabras,links);
                 tmp4=tmp4.getNextNode();
             }
-            //System.out.println("2");
             tmp3=tmp3.getNextNode();
             if(tmp3!=null)
                 tmp4=((palabra)tmp3.getData()).getListaReferencia().getHead();
         }
-        System.out.println("3");
     }
     
     public boolean getParar(){
