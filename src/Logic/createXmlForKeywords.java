@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Logic;
 
 import java.util.ArrayList;
@@ -20,71 +16,50 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 /**
- *
- * @author gerald
+ *Clase para realizar la creacion del archivo XML que contendra los datos del indice.
+ * @author Gerald M, Jairo O.
  */
 public class createXmlForKeywords<G> {
-    public createXmlForKeywords(){
-        
+    /**
+     * Constructor de la clase
+     */
+    public createXmlForKeywords(){ 
     }
-    
-    
-    public void generate(String name, ArrayList<String> palabras,ArrayList<String>links) throws Exception{
-        //System.out.println("GERALD EL GOZADO");
- 
-        if(palabras.isEmpty() ){
+    /**
+     * Este metodo funciona para crear el cuerpo del archivo XML que contendrá 
+     * el indice.
+     * @param pname, Nombre que resive el nuevo archivo XML
+     * @param ppalabras, Palabras extraidas de la lista de Keywords
+     * @param lpinks, links extraidos de la lista de URL's
+     * @throws Exception 
+     */
+    public void generate(String pname, ArrayList<String> ppalabras,ArrayList<String>plinks) throws Exception{
+        if(ppalabras.isEmpty() ){
             System.out.println("ERROR empty ArrayList");
             return;
         }else{
- 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             DOMImplementation implementation = builder.getDOMImplementation();
-            Document document = implementation.createDocument(null, name, null);
+            Document document = implementation.createDocument(null, pname, null);
             document.setXmlVersion("1.0");
- 
-            //Main Node
-            Element raiz = document.getDocumentElement();
-            //Por cada palabras creamos un item que contendrá la palabras y el value
-            Element itemNode1 = document.createElement("KeyWords");
-            
-
-            raiz.appendChild(itemNode1);
-            //Element itemNode2 = document.createElement("UrlsProcesadas"); 
-            //raiz.appendChild(itemNode2);
-            
-            
-            for(int i=0; i<palabras.size();i++){
-                //Item Node
-                //Element itemNode1 = document.createElement("KeyWords"); 
-                
-                
-                Element itemNode2 = document.createElement("KeyWord");
-                
-                //Key Node
-                
-                Element palabraNode = document.createElement("Palabra"); 
-                Text palabraValue = document.createTextNode(palabras.get(i));
-                palabraNode.appendChild(palabraValue);  
-                /**
-                 * 
-                 */
-                Element linkNode = document.createElement("Link"); 
-                Text linkValue = document.createTextNode(links.get(i));
-                linkNode.appendChild(linkValue); 
-                /**
-                 * 
-                 */
-                itemNode1.appendChild(itemNode2);
-                itemNode2.appendChild(palabraNode);
-                itemNode2.appendChild(linkNode);
-                
-                
+            Element raizDelDocumento = document.getDocumentElement();
+            Element etiquetaPrincipal = document.createElement("KeyWords");
+            raizDelDocumento.appendChild(etiquetaPrincipal);
+            for(int i=0; i<ppalabras.size();i++){
+                Element etiquetaSegundaria = document.createElement("KeyWord");
+                Element nodoPalabra = document.createElement("Palabra"); 
+                Text valorDeLaPalabra = document.createTextNode(ppalabras.get(i));
+                nodoPalabra.appendChild(valorDeLaPalabra);  
+                Element nodoLinks = document.createElement("Link"); 
+                Text valorDeLink = document.createTextNode(plinks.get(i));
+                nodoLinks.appendChild(valorDeLink); 
+                etiquetaPrincipal.appendChild(etiquetaSegundaria);
+                etiquetaSegundaria.appendChild(nodoPalabra);
+                etiquetaSegundaria.appendChild(nodoLinks);
             }                
-            //Generate XML
             Source source = new DOMSource(document);
-            //Indicamos donde lo queremos almacenar
-            Result result = new StreamResult(new java.io.File(name+".xml")); //nombre del archivo
+            Result result = new StreamResult(new java.io.File(pname+".xml")); 
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.transform(source, result);
         }

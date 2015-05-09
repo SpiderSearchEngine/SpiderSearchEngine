@@ -10,8 +10,8 @@ public class circularList <G>{
      * Constructor de la clase.
      * @param _head. Referencia de insercion en la lista.
      */
-    public circularList (node _head){
-        this._head=_head;
+    public circularList (node phead){
+        this._head=phead;
     }
     
     /**
@@ -25,8 +25,8 @@ public class circularList <G>{
      * Metodo para modificar el head de la lista.
      * @param head. Nuevo valor del head.
      */
-    public void setHead(node head){
-        this._head=head;
+    public void setHead(node phead){
+        this._head=phead;
     }
     /**
      * Metodo para insertar por el head en la lista.

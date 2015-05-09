@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 
 /**
  * Clase para realizar el spiderBot.
- * @author Jairo O, Gerald M.
+ * @author Gerald M, Jairo O.
  */
 public class spiderBot {
     
@@ -133,22 +133,19 @@ public class spiderBot {
         createXmlForUrlProcess cfup=new createXmlForUrlProcess();
         node tmp= urlList.getHead();
         ArrayList key = new ArrayList();
-        ArrayList Url = new ArrayList();
         ArrayList UrlsProcesadas = new ArrayList();
         if (urlList.getHead()==null)
             return;
         else{
             while(tmp.getNextNode()!=urlList.getHead()){
                 key.add(" ");
-                Url.add(" ");
                 UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
-                cfup.generate("indice1", key,Url,UrlsProcesadas);                
+                cfup.generate("indice1", key,UrlsProcesadas);                
                 tmp=tmp.getNextNode();
             }
             key.add(" ");
-            Url.add(" ");
             UrlsProcesadas.add(((String)(((urlProcesado)tmp.getData()).getDireccion()))+" "+(((urlProcesado)tmp.getData())).getReferencia());
-            cfup.generate("indice1", key,Url,UrlsProcesadas);
+            cfup.generate("indice1", key,UrlsProcesadas);
             
         }
     }
