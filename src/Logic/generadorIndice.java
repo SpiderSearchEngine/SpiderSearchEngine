@@ -11,13 +11,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * 
  * @author jairo
  */
 public class generadorIndice extends Thread{
     private spiderBot _sb;
-    
-    
+    /**
+     * 
+     * @param sp 
+     */
     public generadorIndice(spiderBot sp){
         this._sb=sp;
     }

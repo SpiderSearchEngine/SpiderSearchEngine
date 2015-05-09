@@ -12,9 +12,9 @@ public class list <G>{
      * @param _head. Primer elemento de la lista.
      * @param _tail. Ultimo elemento de la lista.
      */
-    public list (node _head, node _tail){
-        this._head=_head;
-        this._tail=_tail;
+    public list (node phead, node ptail){
+        this._head=phead;
+        this._tail=ptail;
     }
     /**
      * Metodo para obtener el head de la lista.
@@ -34,15 +34,15 @@ public class list <G>{
      * Metodo para modificar el head de la lista.
      * @param head. Nuevo valor del head.
      */
-    public void setHead(node head){
-        this._head=head;
+    public void setHead(node phead){
+        this._head=phead;
     }
     /**
      * Metodo para modificar el tail de la lista.
      * @param tail. Nuevo valor del tail.
      */
-    public void setTail(node tail){
-        this._tail=tail;
+    public void setTail(node ptail){
+        this._tail=ptail;
     }
     /**
      * Metodo para insertar por el head en la lista.
@@ -161,7 +161,11 @@ public class list <G>{
         }
         return condition;        
     }
-    
+    /**
+     * Este metodo encuentra las palabras en la lista de keywords
+     * @param pData
+     * @return 
+     */
     public boolean findSpecial (G pData){
         node tmp = _head;
         boolean condition = false;

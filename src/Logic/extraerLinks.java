@@ -19,17 +19,17 @@ public class extraerLinks {
      * Constructor de la clase
      * @param url 
      */
-    public extraerLinks(String url){
-        this._url=url;
+    public extraerLinks(String purl){
+        this._url=purl;
     }
     /**
      * Metodo que extrae el HTML de la pagina web
-     * @param string_url. Pagina solicitada
+     * @param pstring_url. Pagina solicitada
      * @throws MalformedURLException
      * @throws IOException 
      */
-    public stackList extraerTexto(String string_url, int numAsoc) throws MalformedURLException, IOException{
-        URL url = new URL(string_url);
+    public stackList extraerTexto(String pstring_url, int pnumAsoc) throws MalformedURLException, IOException{
+        URL url = new URL(pstring_url);
         URLConnection conexion=url.openConnection();
         InputStream entrada =conexion.getInputStream();
         BufferedReader br= new BufferedReader(new InputStreamReader(entrada)); 
@@ -39,47 +39,47 @@ public class extraerLinks {
                 contenido+=linea;
                 linea=br.readLine();
         }
-        return extraerURL(contenido, numAsoc);
+        return extraerURL(contenido, pnumAsoc);
     }
     /**
      * Metodo para obtener solamente los links
-     * @param contenido. HTML de la pagina web
+     * @param pcontenido. HTML de la pagina web
      */
-    private stackList extraerURL(String contenido, int numAsoc) {
+    private stackList extraerURL(String pcontenido, int pnumAsoc) {
         Pattern patron=Pattern.compile("(?i)HREF\\s*=\\s*\"(.*?)\"");
-        Matcher matcher=patron.matcher(contenido);
+        Matcher matcher=patron.matcher(pcontenido);
         stackList sl = new stackList (null);
         while(matcher.find())
             sl.push(matcher.group(1));
-        return verificar(sl, _url, numAsoc);
+        return verificar(sl, _url, pnumAsoc);
     }
 
     
     
     /**
      * Metodo para dar el formato a los links
-     * @param dato. link a analizar
-     * @param url. Pagina solicitada
+     * @param pdato. link a analizar
+     * @param purl. Pagina solicitada
      */
-    private stackList verificar(stackList pila, String _url, int numAsoc){
+    private stackList verificar(stackList ppila, String purl, int pnumAsoc){
         stackList sl = new stackList (null);
-        while (pila.top()!=null){
-            String dato = (String)pila.top().getData();
+        while (ppila.top()!=null){
+            String dato = (String)ppila.top().getData();
             if (dato.endsWith(".css")||dato.startsWith("//")|| dato.startsWith("#") || dato.startsWith("https"))
-                pila.pop();
+                ppila.pop();
             else if (dato.startsWith("http")){
                 String str ="";
                 int i=0;
                 str=dato.substring(i,dato.length());
-                sl.push(new url(str, numAsoc+1));
-                pila.pop();
+                sl.push(new url(str, pnumAsoc+1));
+                ppila.pop();
             }
             else if (dato.length()>1 && dato.startsWith("/") ){
-                sl.push(new url(_url+dato, numAsoc+1));
-                pila.pop();
+                sl.push(new url(_url+dato, pnumAsoc+1));
+                ppila.pop();
             }
             else{
-                pila.pop();
+                ppila.pop();
             }
         }
         return sl;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Logic;
 
 import java.io.BufferedReader;
@@ -15,7 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- *
+ * Clase para extraer texto plano desde una direccion Url.
  *@author Jairo O, Gerald M.
  */
 public class extraeTexto {
@@ -27,34 +23,23 @@ public class extraeTexto {
     * @throws MalformedURLException
     * @throws IOException 
     */
-    public String extraerTexto(String string_url)throws MalformedURLException, IOException, FileNotFoundException {
+    public String extraerTexto(String pstring_url)throws MalformedURLException, IOException, FileNotFoundException {
         String contenido="";
         try{
-        // TODO Auto-generated method stub
-	
-		//Pasar el URL
-		URL url= new URL(string_url);
-		//Abrir la possibilidad de coneccion
-		URLConnection conexion=url.openConnection();
-		//Conectarse
-		conexion.connect();
-		/*
-		 * Aqui se hace la lectura del texto HTML si es que el URL lo posee
-		 * */
-		InputStream entrada =conexion.getInputStream();
-		BufferedReader lectura= new BufferedReader(new InputStreamReader(entrada));
-		
-		
-		
-		String linea=lectura.readLine();
-		while (linea!=null){
-			contenido+=linea;
-			linea=lectura.readLine();
+            URL url= new URL(pstring_url);
+            URLConnection conexion=url.openConnection();
+            conexion.connect();
+            InputStream entradaDeDatos =conexion.getInputStream();
+            BufferedReader lecturaDeDatos= new BufferedReader(new InputStreamReader(entradaDeDatos));
+            String linea=lecturaDeDatos.readLine();
+            while (linea!=null){
+                    contenido+=linea;
+                    linea=lecturaDeDatos.readLine();
                 }
         }
-		catch (FileNotFoundException e) {
-                    e.printStackTrace();
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
                 }
-        return contenido;
+    return contenido;
     }
 }

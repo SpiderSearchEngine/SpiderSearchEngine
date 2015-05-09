@@ -1,11 +1,6 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
 package Logic;
 /**
-*
+* Clase que crea la lista de palabras
 * @author Gerald m, Jairo O
 */
 public class listKey <G>{
@@ -17,9 +12,9 @@ public class listKey <G>{
     * @param _head. Primer elemento de la lista.
     * @param _tail. Ultimo elemento de la lista.
     */
-    public listKey (nodeKey _head, nodeKey _tail){
-        this._head=_head;
-        this._tail=_tail;
+    public listKey (nodeKey phead, nodeKey ptail){
+        this._head=phead;
+        this._tail=ptail;
         }
     /**
     * Metodo para obtener el head de la lista.
@@ -39,15 +34,15 @@ public class listKey <G>{
     * Metodo para modificar el head de la lista.
     * @param head. Nuevo valor del head.
     */
-    public void setHead(nodeKey head){
-        this._head=head;
+    public void setHead(nodeKey phead){
+        this._head=phead;
         }
     /**
     * Metodo para modificar el tail de la lista.
     * @param tail. Nuevo valor del tail.
     */
-    public void setTail(nodeKey tail){
-        this._tail=tail;
+    public void setTail(nodeKey ptail){
+        this._tail=ptail;
         }
     /**
     * Metodo para insertar por el head en la lista.

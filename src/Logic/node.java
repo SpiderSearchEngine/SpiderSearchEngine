@@ -1,5 +1,4 @@
 
-
 package Logic;
 
 /**
@@ -7,7 +6,7 @@ package Logic;
  * @author Jairo O, Gerald M.
  */
 public class node <G>{
-    private G pdata;
+    private G _pdata;
     private node _next;
     private node _prev;
     /**
@@ -17,7 +16,7 @@ public class node <G>{
      * @param prev. anterior nodo.
      */
     public node (G pdata, node next,  node prev){
-        this.pdata=pdata;
+        this._pdata=pdata;
         this._next=next;
         this._prev=prev;        
     }
@@ -26,7 +25,7 @@ public class node <G>{
      * @return elemento deseado.
      */
     public G getData (){
-        return pdata;
+        return _pdata;
     }
     /**
      * Metodo para obtener el siguiente nodo.
@@ -47,7 +46,7 @@ public class node <G>{
      * @param pdata. Dato para modificar.
      */
     public void setData (G pdata){
-        this.pdata=pdata;
+        this._pdata=pdata;
     }
     /**
      * Metodo para modificar el siguiente nodo
